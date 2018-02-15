@@ -1,0 +1,55 @@
+body{
+    background-color:#33ccff;
+}
+#logo{
+    width:600px;
+    font-size:75px;
+    font-family:monospace;
+    color:#66ff66;
+    border-style:solid;
+    border-color:black;
+    background-color:lightgrey;
+    text-align:center;
+    border-width:5px;
+    margin-left:auto;
+    margin-right:auto;
+}
+.buttons{
+list-style:none;
+text-align:center;
+margin-bottom:25px;
+margin-top:25px;
+}
+#search-line{
+text-align:center;
+}
+#search-bar{
+    height:10px;
+    width:500px;
+    border-radius:4px;
+    border:1px solid;
+    padding:10px;
+}
+.disclamer{
+ text-align:center;
+}
+#workspace{
+    margin-left:auto;
+    margin-right:auto;
+    text-align:center;
+    border:solid tan;
+    border-width:7px;
+    background-color:#f1f1f1;
+    height:400px;
+    width:750px;
+    display:none;
+    }
+#search-results{
+    border:solid;
+    background-color:white;
+    height:400px;
+    width:750px;
+    margin-left:auto;
+    margin-right:auto;
+    padding:10px;
+}
