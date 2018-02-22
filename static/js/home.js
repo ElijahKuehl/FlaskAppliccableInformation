@@ -1,3 +1,4 @@
+$(document).ready(function() {
 $("#workspace").hide();
 $("#workspace-button").click(function(){
     $("#workspace").show();
@@ -13,5 +14,5 @@ $("#search-results").hide();
 $("#search-button").click(function(){
     $("#search-results").show();
     $("#search-results").append($("#search-bar").val());
-
     });
+});
