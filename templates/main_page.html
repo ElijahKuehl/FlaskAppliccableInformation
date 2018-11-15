@@ -1,31 +1,72 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>C2C Website Project</title>
+        <title>Pok-à-pplicable Information</title>
+        <link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA////APDw8AD/rgAA1tbWANauAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEiREAAAAAAERIiRAAAAAERESIkQAAAEREREiJEAAARERERIkQAABEREAESRAAAEREAABJEAAAzMwAANVUAADMzMAM1VQAAMzMzMzVVAAAzMzMzVVUAAAMzMzNVUAAAADMzNVUAAAAAAzNVUAAAAAAAAAAAAAD//wAA+B8AAPAPAADgBwAAwAMAAMADAADAAwAAwAMAAMADAADAAwAAwAMAAMADAADgBwAA8A8AAPgfAAD//wAA"
+        rel="icon" type="image/x-icon" />
         <script src='http://code.jquery.com/jquery-1.11.1.min.js'></script>
         <link rel='stylesheet' type='text/css' href='static/css/main_page.css'>
         <script src='static/js/home.js'></script>
     </head>
     <body>
-        <h1 id="logo">Appliccable Information</h1>
-        <p>
+        <h1 id="logo">Pok-à-pplicable Information</h1>
+        <p id="search-line">
+        <input id="search-bar" placeholder="Search your Pokemon here"> <button id="search-button" class="buttons">Search</button> <button id="clear">Clear</button>
+<!--
+        <p id="sort"> Sort by:
+            <button ID="StatHigh"> Stat High </button>
+                <button class="StatHigh" > Total </button>
+                <button class="StatHigh" > HP </button>
+                <button class="StatHigh" > Attack </button>
+                <button class="StatHigh" > Defense </button>
+                <button class="StatHigh" > Sp. Atack </button>
+                <button class="StatHigh" > SP. Defense </button>
+                <button class="StatHigh" > Speed </button>
+            <button ID="StatLow"> Stat Low </button>
+                <button class="StatLow" > Total </button>
+                <button class="StatLow" > HP </button>
+                <button class="StatLow" > Attack </button>
+                <button class="StatLow" > Defense </button>
+                <button class="StatLow" > Sp. Atack </button>
+                <button class="StatLow" > SP. Defense </button>
+                <button class="StatLow" > Speed </button>
+                </p>
+        <p id="filter"> Filter by:
+            <button ID="Generation"> Generation </button>
+                <button class="Generation"> 1 </button>
+                <button class="Generation"> 2 </button>
+                <button class="Generation"> 3 </button>
+                <button class="Generation"> 4 </button>
+                <button class="Generation"> 5 </button>
+                <button class="Generation"> 6 </button>
+            <button ID="Legendary"> Legendary </button>
+                <button class="Legendary"> Yes </button>
+                <button class="Legendary"> No </button>
+            <button ID="Type"> Type </button>
+                <button class="Type"> Bug </button>
+                <button class="Type"> Dragon </button>
+                <button class="Type"> Ice </button>
+                <button class="Type"> Fighting </button>
+                <button class="Type"> Fire </button>
+                <button class="Type"> Flying </button>
+                <button class="Type"> Grass </button>
+                <button class="Type"> Ghost </button>
+                <button class="Type"> Ground </button>
+                <button class="Type"> Eletric </button>
+                <button class="Type"> Normal </button>
+                <button class="Type"> Posion </button>
+                <button class="Type"> Psychic </button>
+                <button class="Type"> Rock </button>
+                <button class="Type"> Water </button>
+                <button class="Type"> Dark </button>
+                <button class="Type"> Steel </button>
+                <button class="Type"> Fairy </button>
+        </p>
+-->
+        <p id="search-results"></p>
+        <p ID="disclamer">Sorry folks! Nothing beyond Generation 6 yet!</p>
+        <p class="copyright">Pokémon And All Respective Names are Trademark & © of Nintendo 1996-2018. Data created by <a href="https://data.world/data-society/pokemon-with-stats/workspace/file?filename=Pokemon.csv">Data Society</a>.</p>
 
         </p>
-        <p>
-        <ul>
-        <li class="buttons">
-        <button id="workspace-button">Workspace</button> <button>Calculator</button> <button id="search-bar-button">Search Topic</button> <button id="clear">Clear Area</button>
-        </li>
-        </ul>
-        </p>
-        <p id="search-line">
-        <input id="search-bar" placeholder="Search your topic here"> <button id="search-button" class="buttons">Search</button>
-        <p id="search-results">Here's what we found in our data-base for: </p>
-        </p>
-        <p id="workspace">
-        Workspace
-        </p>
-        <p class="disclamer">Workspace and calculator are still works in progress, and will not work. </p>
-        <p class="disclamer"> The Search bar will not return anything. </p>
     </body>
 </html>
