@@ -2,45 +2,61 @@ $(document).ready(function(){
     $("#clear").click(function(){
         $("#search-results").hide();
         $("#search-bar").val("");
-        /*
-        $(".StatHigh").hide();
-        $(".StatLow").hide();
-        $(".Generation").hide();
-        $(".Legendary").hide();
-        $(".Type").hide();
-        */
+        $(".sortMenu").hide();
+        $(".sortBtn").show();
+        $(".filterMenu").hide();
+        $(".filterBtn").show();
     });
-
+    $(".sortMenu").hide();
+    $(".sortBtn").show();
+    $(".filterMenu").hide();
+    $(".filterBtn").show();
     $("#search-results").hide();
+
+
     $("#search-button").click(function(){
         $("#search-results").show();
-        });
-/*
-    $(".StatHigh").hide();
-    $("#StatHigh").click(function(){
-        $(".StatHigh").show();
-        });
+    });
 
-    $(".StatLow").hide();
-    $("#StatLow").click(function(){
-        $(".StatLow").show();
-        });
 
-    $(".Generation").hide();
-    $("#Generation").click(function(){
-        $(".Generation").show();
-        });
+    $(".sortBtn").click(function(){
+        $(".sortMenu").hide();
+        $(".sortBtn").show();
+    });
 
-    $(".Legendary").hide();
-    $("#Legendary").click(function(){
-        $(".Legendary").show();
-        });
+    $("#HighStatsBtn").click(function(){
+        $("#HighStatsMenu").show();
+        $("#HighStatsBtn").hide();
+    });
 
-    $(".Type").hide();
-    $("#Type").click(function(){
-        $(".Type").show();
-        });
-*/
+    $("#LowStatsBtn").click(function(){
+        $("#LowStatsMenu").show();
+        $("#LowStatsBtn").hide();
+    });
+
+
+    $(".filterBtn").click(function(){
+        $(".filterMenu").hide();
+        $(".filterBtn").show();
+    });
+
+    $("#GenerationBtn").click(function(){
+        $("#GenerationMenu").show();
+        $("#GenerationBtn").hide();
+    });
+
+    $("#LegendaryBtn").click(function(){
+        $("#LegendaryMenu").show();
+        $("#LegendaryBtn").hide();
+    });
+
+    $("#TypeBtn").click(function(){
+        $(".filterMenu").hide();
+        $(".filterBtn").show();
+        $("#TypeMenu").show();
+        $("#TypeBtn").hide();
+    });
+
 
     $("#search-button").click(function(event) {
         event.preventDefault();
@@ -75,4 +91,9 @@ $(document).ready(function(){
             $("#search-results").html(items);
         });
     });
+
+    $("#HighTotal").click(function(event){
+
+    });
+
 });
