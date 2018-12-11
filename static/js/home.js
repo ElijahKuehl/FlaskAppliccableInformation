@@ -92,6 +92,10 @@ $(document).ready(function(){
         });
     });
 
+    $("#gotoTop").click(function() {
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    });
 
 window.onscroll = function() {scrollFunction()};
 
@@ -102,12 +106,6 @@ function scrollFunction() {
     document.getElementById("gotoTop").style.display = "none";
   }
 }
-
-    function topFunction() {
-    document.body.scrollTop = 0; // For Safari
-    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-}
-
 
 
     $("#HighTotal").click(function(event){

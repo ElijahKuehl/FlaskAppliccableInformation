@@ -63,7 +63,7 @@ li{
     color:Black;
     border:none;
     outline:none;
-    background-color:#ff9900f0;
+    background-color:#ff9900;
     border-width:3px;
     padding:5px;
     position: fixed;
@@ -71,10 +71,11 @@ li{
     right: 30px;
     cursor: pointer;
     border-radius: 10px;
+    z-index: 99;
 }
 
 #gotoTop:hover{
-    background-color:#ee8800f0;
+    background-color:#ee8800;
 }
 
 Make this fit to mobile
