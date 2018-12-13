@@ -60,11 +60,14 @@ $(document).ready(function(){
 
     $("#search-button").click(function(event) {
         event.preventDefault();
-        var pokeName = $("#search-bar").val();
-        var queryString = "/pokedex" + "?pokeName=" + pokeName;
+
+        //var sortHigh = $("#HighStatsMenu").val();
+
+        var pokeNames = $("#search-bar").val();
+        var queryString = "/pokedex" + "?pokeName=" + pokeNames;
 
         $.getJSON( queryString, function (json) {
-            console.log(json);
+            //console.log(json);
             var items = [];
             items.push();
 

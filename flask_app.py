@@ -2,6 +2,7 @@ from flask import Flask, jsonify, render_template, request
 from sqlalchemy import create_engine
 app = Flask(__name__)
 
+
 Pokedex = "mysql+mysqlconnector://{username}:{password}@{hostname}/{databasename}".format(
     username="ElijahKuehl",
     password="EndyStar9d9",
@@ -15,19 +16,19 @@ def index():
     return render_template('main_page.html')
 
 @app.route('/pokedex', methods=['Get'])
-def index2():
+def process_inputs():
     pokemon = request.args["pokeName"]
-    results = engine.execute("SELECT id, number, name, type1, CASE type2 WHEN '' THEN 'None' ELSE type2 END AS type2, total, hp, attack, defense, sp_attack, sp_defense, speed, generation, CASE legendary WHEN 'False' THEN 'Not' WHEN 'True' THEN 'Is' END AS legendary from Pokedex where name like '%%{}%%';".format(pokemon))
-    return jsonify([(dict(row.items())) for row in results])
+    # get the value from Total in the HighStats dropdown.
+    sortVal = request.args.get("HighStats")
+    dex = "SELECT id, number, name, type1, CASE type2 WHEN '' THEN 'None' ELSE type2 END AS type2, total, hp, attack, defense, sp_attack, sp_defense, speed, generation, CASE legendary WHEN 'False' THEN 'Not' WHEN 'True' THEN 'Is' END AS legendary from Pokedex where name like '%%{}%%' "
+    # for total stats high:
+    print(str(sortVal))
 
-
-#see that someone chose something in the dropdown
-#sort by the stat selected in the dropdown
-#put those stats onto the website
-@app.route('/total', methods=['Get'])
-def index3():
-    pokemon = request.args["pokeName"]
-    results = engine.execute("select id, number, name, type1, CASE type2 WHEN '' THEN 'None' ELSE type2 END AS type2, total, hp, attack, defense, sp_attack, sp_defense, speed, generation, CASE legendary WHEN 'False' THEN 'Not' WHEN 'True' THEN 'Is' END AS legendary from Pokedex where name like '%%{}%%' ORDER BY total DESC;".format(pokemon))
+    if sortVal == "Total":
+        sort = "ORDER BY total DESC"
+    else:
+        sort = ""
+    results = engine.execute((dex+sort+";").format(pokemon))
     return jsonify([(dict(row.items())) for row in results])
 
 
