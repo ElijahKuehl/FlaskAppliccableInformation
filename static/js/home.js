@@ -6,12 +6,45 @@ $(document).ready(function(){
         $(".sortBtn").show();
         $(".filterMenu").hide();
         $(".filterBtn").show();
-    });
+
+        $(".StatHigh").hide();
+        $(".StatLow").hide();
+        $(".Generation").hide();
+        $(".Legendary").hide();
+        $(".Type").hide();
+        });
+
     $(".sortMenu").hide();
     $(".sortBtn").show();
     $(".filterMenu").hide();
     $(".filterBtn").show();
     $("#search-results").hide();
+
+
+
+    /*
+    $(".StatHigh").hide();
+    $("#StatHigh").click(function(){
+        $(".StatHigh").show();
+        });
+    $(".StatLow").hide();
+    $("#StatLow").click(function(){
+        $(".StatLow").show();
+        });
+    $(".Generation").hide();
+    $("#Generation").click(function(){
+        $(".Generation").show();
+        });
+    $(".Legendary").hide();
+    $("#Legendary").click(function(){
+        $(".Legendary").show();
+        });
+    $(".Type").hide();
+    $("#Type").click(function(){
+        $(".Type").show();
+        });
+    */
+
 
 
     $("#search-button").click(function(){
@@ -21,6 +54,7 @@ $(document).ready(function(){
 
     $(".sortBtn").click(function(){
         $(".sortMenu").hide();
+        $(".sortMenu").val('Default');
         $(".sortBtn").show();
     });
 
@@ -37,6 +71,7 @@ $(document).ready(function(){
 
     $(".filterBtn").click(function(){
         $(".filterMenu").hide();
+        $(".filterMenu").val('Default');
         $(".filterBtn").show();
     });
 
@@ -64,7 +99,8 @@ $(document).ready(function(){
         //var sortHigh = $("#HighStatsMenu").val();
 
         var pokeNames = $("#search-bar").val();
-        var queryString = "/pokedex" + "?pokeName=" + pokeNames;
+        var sortBy = document.getElementById("HighStatsMenu").value
+        var queryString = "/pokedex" + "?pokeName=" + pokeNames + "&sortBy=" + sortBy;
 
         $.getJSON( queryString, function (json) {
             //console.log(json);
@@ -100,19 +136,13 @@ $(document).ready(function(){
     document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
     });
 
-window.onscroll = function() {scrollFunction()};
+    window.onscroll = function() {scrollFunction()};
 
-function scrollFunction() {
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
     document.getElementById("gotoTop").style.display = "block";
-  } else {
+    } else {
     document.getElementById("gotoTop").style.display = "none";
-  }
-}
-
-
-    $("#HighTotal").click(function(event){
-
-    });
-
+    }
+    }
 });

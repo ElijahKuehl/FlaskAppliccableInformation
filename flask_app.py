@@ -15,20 +15,30 @@ engine = create_engine(Pokedex)
 def index():
     return render_template('main_page.html')
 
+
 @app.route('/pokedex', methods=['Get'])
 def process_inputs():
     pokemon = request.args["pokeName"]
     # get the value from Total in the HighStats dropdown.
-    sortVal = request.args.get("HighStats")
-    dex = "SELECT id, number, name, type1, CASE type2 WHEN '' THEN 'None' ELSE type2 END AS type2, total, hp, attack, defense, sp_attack, sp_defense, speed, generation, CASE legendary WHEN 'False' THEN 'Not' WHEN 'True' THEN 'Is' END AS legendary from Pokedex where name like '%%{}%%' "
-    # for total stats high:
-    print(str(sortVal))
+    sortVal = request.args["sortBy"]
 
-    if sortVal == "Total":
+    if sortVal == "HighTotal":
         sort = "ORDER BY total DESC"
+    elif sortVal == "HighHp":
+        sort = "ORDER BY hp DESC"
+    elif sortVal == "HighAtk":
+        sort = "ORDER BY _ DESC"
+    elif sortVal == "HighDef":
+        sort = "ORDER BY _ DESC"
+    elif sortVal == "HighSAtk":
+        sort = "ORDER BY _ DESC"
+    elif sortVal == "HighSDef":
+        sort = "ORDER BY _ DESC"
+    elif sortVal == "":
+        sort = "ORDER BY _ DESC"
     else:
         sort = ""
-    results = engine.execute((dex+sort+";").format(pokemon))
+    results = engine.execute(("SELECT id, number, name, type1, CASE type2 WHEN '' THEN 'None' ELSE type2 END AS type2, total, hp, attack, defense, sp_attack, sp_defense, speed, generation, CASE legendary WHEN 'False' THEN 'Not' WHEN 'True' THEN 'Is' END AS legendary from Pokedex where name like '%%{}%%' "+sort+";").format(pokemon))
     return jsonify([(dict(row.items())) for row in results])
 
 
