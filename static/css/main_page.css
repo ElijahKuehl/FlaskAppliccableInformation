@@ -3,6 +3,7 @@ body{
     background: conic-gradient(#f33, #3cf);
 }
 
+
 #logo{
     width:750px;
     font-size:75px;
@@ -80,25 +81,10 @@ li{
     background-color:#ee8800;
 }
 
-TODO: Make this fit to mobile
-
-/*
-.StatLow{
-    border-width:0px;
-    }
-.StatHigh{
-    border-width:0px;
-    }
-.Generation{
-    border-width:0px;
-    }
-.Legendary{
-    border-width:0px;
-    }
-.Type{
-    border-width:0px;
-    }
-#StatLow, #StatHigh, #Legendary, #Type, #Name, #Alpahbetically, #Number, #Generation{
-    background-color: white;
+#images{
+    margin-left:0px;
+    position: fixed;
+    left: 30px;
 }
-*/
+
+TODO: Make this fit to mobile

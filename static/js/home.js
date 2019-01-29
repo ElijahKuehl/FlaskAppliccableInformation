@@ -6,7 +6,8 @@ $(document).ready(function(){
         $(".sortBtn").show();
         $(".filterMenu").hide();
         $(".filterBtn").show();
-
+        $(".sortMenu").val('Default');
+        $(".filterMenu").val('Default');
         $(".StatHigh").hide();
         $(".StatLow").hide();
         $(".Generation").hide();
@@ -19,32 +20,6 @@ $(document).ready(function(){
     $(".filterMenu").hide();
     $(".filterBtn").show();
     $("#search-results").hide();
-
-
-
-    /*
-    $(".StatHigh").hide();
-    $("#StatHigh").click(function(){
-        $(".StatHigh").show();
-        });
-    $(".StatLow").hide();
-    $("#StatLow").click(function(){
-        $(".StatLow").show();
-        });
-    $(".Generation").hide();
-    $("#Generation").click(function(){
-        $(".Generation").show();
-        });
-    $(".Legendary").hide();
-    $("#Legendary").click(function(){
-        $(".Legendary").show();
-        });
-    $(".Type").hide();
-    $("#Type").click(function(){
-        $(".Type").show();
-        });
-    */
-
 
 
     $("#search-button").click(function(){
@@ -69,7 +44,7 @@ $(document).ready(function(){
     });
 
 
-    $(".filterBtn").click(function(){
+    $("#filterClear").click(function(){
         $(".filterMenu").hide();
         $(".filterMenu").val('Default');
         $(".filterBtn").show();
@@ -86,32 +61,38 @@ $(document).ready(function(){
     });
 
     $("#TypeBtn").click(function(){
-        $(".filterMenu").hide();
-        $(".filterBtn").show();
         $("#TypeMenu").show();
         $("#TypeBtn").hide();
     });
 
 
+    //$(".imageBtn").click(function(){
+    //    var x = document.createElement("IMG");
+    //    x.setAttribute("src", "https://img.pokemondb.net/sprites/omega-ruby-alpha-sapphire/dex/normal/"+val.name.toLowerCase().replace(' ', '-').replace('mega-', ''));
+    //    document.body.li.appendChild(x);
+    //});
+
+
     $("#search-button").click(function(event) {
         event.preventDefault();
 
-        //var sortHigh = $("#HighStatsMenu").val();
-
         var pokeNames = $("#search-bar").val();
-        var sortBy = document.getElementById("HighStatsMenu").value
-        var queryString = "/pokedex" + "?pokeName=" + pokeNames + "&sortBy=" + sortBy;
+        var highStats = document.getElementById("HighStatsMenu").value;
+        var lowStats = document.getElementById("LowStatsMenu").value;
+        var generationFilt = document.getElementById("GenerationMenu").value;
+        var legendFilt = document.getElementById("LegendaryMenu").value;
+        var typeFilt = document.getElementById("TypeMenu").value;
+        //TODO: Make a second Type menu.
+        //This gets sent to python
+        var queryString = "/pokedex" + "?pokeName=" + pokeNames + "&highStats=" + highStats + "&lowStats=" + lowStats + "&generationFilt=" + generationFilt + "&legendFilt=" + legendFilt + "&typeFilt=" + typeFilt;
 
         $.getJSON( queryString, function (json) {
-            //console.log(json);
             var items = [];
-            items.push();
-
             $.each(json, function(key, val){
         items.push(
-        "<li>" + " | "
+         "<li>" + "<img scr='https://img.pokemondb.net/sprites/omega-ruby-alpha-sapphire/dex/normal/"+val.name.toLowerCase().replace(' ', '-').replace('mega-', '')+".png'>" + " | "
         + val.number + " | "
-        + val.name + " | "
+        + "<button class='lead imageBtn' name='" + val.name + "'>" + val.name + "</button>" + " | "
         + "Type 1: " + val.type1 + " | "
         + "Type 2: " + val.type2 + " | "
         + "Generation " + val.generation + " | "

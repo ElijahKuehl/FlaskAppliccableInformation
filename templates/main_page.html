@@ -3,7 +3,6 @@
     <head>
         <title>Pok-à-pplicable Information</title>
         <link href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAx8fH/8fHx//Hx8f/x8fH/8fHx//Hx8f/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAx8fH/+Pj4//y8vL/8vLy//Ly8v/y8vL/4+Pj/8fHx/8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAx8fH/+Pj4//y8vL///////////////////////Ly8v/j4+P/x8fH/wAAAAAAAAAAAAAAAAAAAAAAAAAAx8fH/+Pj4//y8vL///////////////9/////f///////////8vLy/+Pj4//Hx8f/AAAAAAAAAAAAAAAAAAAAAMfHx//y8vL///////////////9/AAAA/wAAAP////9////////////y8vL/x8fH/wAAAAAAAAAAAAAAAAAAAADj4+P/8vLy//////////9/AAAA/wAAAH4AAAB+AAAA/////3//////8vLy/+Pj4/8AAAAAAAAAAAAAAAAAAAAAzDMA//I9AP//QAD//0AAfgAAAP8AAAB+AAAAfgAAAP8AAP9/AAD//wAA8v8AAM//AAAAAAAAAAAAAAAAAAAAAMwzAP/yPQD//0AA//9AAP//QAB+AAAA/wAAAP8AAP9/AAD//wAA//8AAPL/AADP/wAAAAAAAAAAAAAAAAAAAADyPQD//0AA//9AAP//QAD//0AA//9AAH4AAP9/AAD//wAA//8AAP//AAD//wAA8v8AAAAAAAAAAAAAAAAAAAAAAAAAAP9AAP//QAD//0AA//9AAP//QAD/AAD//wAA//8AAP//AAD//wAA//8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/0AA//9AAP//QAD//0AA/wAA//8AAP//AAD//wAA//8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/QAD//0AA//9AAP8AAP//AAD//wAA//8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//8AAP//AAD4HwAA8A8AAOAHAADBgwAAwkMAAMWjAADFowAAwkMAAMGDAADgBwAA8A8AAPgfAAD//wAA//8AAA==" rel="icon" type="image/x-icon" />
-        rel="icon" type="image/x-icon" /> !-->
         <script src='http://code.jquery.com/jquery-1.11.1.min.js'></script>
         <link rel='stylesheet' type='text/css' href='static/css/main_page.css'>
         <script src='static/js/home.js'></script>
@@ -12,6 +11,11 @@
         <button id="gotoTop" title="Go to top">Go to top</button>
         <h1 id="logo">Pok-à-pplicable Information</h1>
 
+<!--
+        <li id="images" >
+            <img src="https://img.pokemondb.net/sprites/omega-ruby-alpha-sapphire/dex/normal/victini.png">
+        </li>
+-->
 
         <p id="search-line">
         <input id="search-bar" placeholder="Search your Pokemon here"> <button id="search-button" class="buttons">Search</button> <button id="clear">Clear</button>
@@ -32,7 +36,7 @@
                 <option value="HighSpd">Speed</option>
             </select>
 
-            <button id="LowStatsBtn" class="sortBtn"> Stat Low </button>
+            <button id="LowStatsBtn" class="sortBtn"> Low Stats </button>
             <select id="LowStatsMenu" class="sortMenu" name="LowStats">
                 <option value="Default">Low Stats</option>
                 <option value="LowTotal">Total</option>
@@ -46,11 +50,8 @@
         </p>
 
 
-
-
-
         <p id="filter">
-            <button class="filterBtn lead">Filter by:</button>
+            <button id=filterClear class="filterBtn lead">Filter by:</button>
 
             <button id="GenerationBtn" class="filterBtn"> Generation </button>
             <select id="GenerationMenu" class="filterMenu" name="Generation">
@@ -69,7 +70,7 @@
                 <option value="Is">Is Legendary</option>
                 <option value="Not">Not Legendary</option>
             </select>
-
+<!--TODO: Make a second Type menu -->
             <button id="TypeBtn" class="filterBtn"> Type </button>
             <select id="TypeMenu" class="filterMenu" name="Type">
                 <option value="Default">Type</option>
@@ -97,7 +98,7 @@
 
         <p id="search-results"></p>
         <p ID="disclamer">Sorry folks! Nothing beyond Generation 6 yet!</p>
-        <p class="copyright">Pokémon And All Respective Names are Trademark & © of Nintendo 1996-2018. Data created by <a href="https://data.world/data-society/pokemon-with-stats/workspace/file?filename=Pokemon.csv">Data Society</a>.</p>
+        <p class="copyright">Pokémon And All Respective Names are Trademark & © of Nintendo 1996-2019. Data created by <a href="https://data.world/data-society/pokemon-with-stats/workspace/file?filename=Pokemon.csv">Data Society</a>.</p>
         </p>
         <br>
         <br>
