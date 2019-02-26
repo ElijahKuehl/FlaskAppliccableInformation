@@ -1,6 +1,7 @@
 body{
     /*background-color:#33ccff;*/
     background: conic-gradient(#f33, #3cf);
+    text-align: center;
 }
 
 
@@ -17,6 +18,22 @@ body{
     margin-left:auto;
     margin-right:auto;
     padding:10px;
+    /*
+    For 'Dex-Star'
+
+    width: 600px;
+    font-size: 100px;
+    font-family: monospace;
+    color: #ff8000;
+    border-style: solid;
+    border-color: #000000cd;
+    background-color: white;
+    text-align: center;
+    border-width: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 4px;
+    */
 }
 #search-line{
     text-align:center;
@@ -35,6 +52,7 @@ body{
     margin-left:auto;
     margin-right:auto;
     padding:10px;
+    list-style:none;
 }
 #sort{
     text-align:center;
@@ -82,9 +100,50 @@ li{
 }
 
 #images{
-    margin-left:0px;
+    color: #ff8000;
+    border-style: solid;
+    border-color: #000000cd;
+    background-color: white;
+    text-align: center;
+    border-width: 5px;
+    padding: 18px;
+    width: 165px;
+    border-radius: 50px;
+    margin-left: 0px;
     position: fixed;
     left: 30px;
+    top: 25%;
+}
+
+#pkmnImage{
+    max-height:150px;
+    max-width:150px;
+}
+
+#emailMe{
+    width:750px;
+    text-align:center;
+    margin-left:auto;
+    margin-right:auto;
+    padding:10px;
+}
+.contactfields{
+    width:200px;
+}
+#emailContent{
+    height:50px;
+    width:400px;
+}
+.contact{
+    text-align:center;
+}
+
+textarea {
+   resize: none;
+}
+
+.pkmnName {
+    color:#323232;
 }
 
 TODO: Make this fit to mobile

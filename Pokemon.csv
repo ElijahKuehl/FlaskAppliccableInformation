@@ -799,5 +799,6 @@ number,name,type1,type2,total,hp,attack,defense,sp_attack,sp_defense,speed,gener
 720,Hoopa Confined,Psychic,Ghost,600,80,110,60,150,130,70,6,True
 720,Hoopa Unbound,Psychic,Dark,680,80,160,60,170,130,80,6,True
 721,Volcanion,Fire,Water,600,80,110,120,130,90,70,6,True
-722,Rowlet,Grass,Flying,,68,55,55,50,50,42,7,False
-723,Dartrix,Grass,Flying,,78,75,75,70,70,52,7,False
+722,Rowlet,Grass,Flying,320,68,55,55,50,50,42,7,False
+723,Dartrix,Grass,Flying,420,78,75,75,70,70,52,7,False
+724,Decidueye,Grass,Ghost,530,78,107,75,100,100,70,7,False

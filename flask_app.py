@@ -16,7 +16,6 @@ engine = create_engine(Pokedex)
 def index():
     return render_template('main_page.html')
 
-
 @app.route('/pokedex', methods=['Get'])
 def process_inputs():
     pokemon = request.args["pokeName"]
@@ -142,3 +141,4 @@ def process_inputs():
 
     results = engine.execute(("SELECT id, number, name, type1, CASE type2 WHEN '' THEN 'None' ELSE type2 END AS type2, total, hp, attack, defense, sp_attack, sp_defense, speed, generation, CASE legendary WHEN 'False' THEN 'Not' WHEN 'True' THEN 'Is' END AS legendary FROM Pokedex WHERE name LIKE '%%{}%%' "+nameFilt+genFilt+legFilt+typFilt+sort+";").format(pokemon))
     return jsonify([(dict(row.items())) for row in results])
+
