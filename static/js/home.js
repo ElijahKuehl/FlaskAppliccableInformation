@@ -15,6 +15,8 @@ $(document).ready(function(){
         $(".Type").hide();
         $("#emailMe").hide();
         document.getElementById("pkmnImage").src="https://img.pokemondb.net/artwork/victini.jpg";
+        document.getElementById("images").style.top = 280 + "px";
+        document.getElementById("images").style.left = 30 + "px";
         });
 
     $("#emailMe").hide();
@@ -72,8 +74,63 @@ $(document).ready(function(){
         $("#emailMe").show();
     });
 
+    $("#search-button").click(function(event) {search(event);});
 
-    $("#search-button").click(function(event) {
+
+//"<button onclick=\"document.createElement(<img class='pkmnImage' src='https://img.pokemondb.net/artwork/"+replaceName+".jpg'>);\" class='lead'>" + val.name + "</button>"
+
+    //TODO: Make a go to bottom
+    $("#gotoTop").click(function() {
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    });
+
+    $("#artFlip").click(function(){
+        if(document.getElementById("artFlip").checked){document.getElementById("copyFlip").checked=true;}
+        else if(!document.getElementById("artFlip").checked){document.getElementById("copyFlip").checked=false;}
+    });
+    $("#copyFlip").click(function(){
+        if(document.getElementById("copyFlip").checked){document.getElementById("artFlip").checked=true;}
+        else if(!document.getElementById("copyFlip").checked){document.getElementById("artFlip").checked=false;}
+    });
+
+    window.onscroll = function() {scrollFunction()};
+
+    function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("gotoTop").style.display = "block";
+    } else {
+    document.getElementById("gotoTop").style.display = "none";
+    }
+
+    if (document.body.scrollTop > 320 || document.documentElement.scrollTop > 320) {
+        document.getElementById("copy").style.display = "block";
+    } else {
+        document.getElementById("copy").style.display = "none";
+    }}
+
+
+    dragElement(document.getElementById("images"));
+    var input = document.getElementById("search-bar");
+
+    input.addEventListener("keyup", function(event) {
+      if (event.keyCode === 13) {
+        event.preventDefault();
+        document.getElementById("search-button").click();
+      }
+    });
+/*
+function validateForm() {
+    var adress = document.forms["contactMe"]["adress"].value;
+    var name = document.forms["contactMe"]["name"].value;
+    var content = document.forms["contactMe"]["content"].value;
+    console.log(adress + ", " + name + ", " + content);
+    if (content == "") { alert("Hey, you forgot to give me somethign to read!"); return false;}
+    if (adress == "" || name == "") {if (!confirm("Do you want to be Anonymous?")) {return false;}}
+}
+*/
+
+function search(event){
         event.preventDefault();
         var pokeNames = $("#search-bar").val();
         var highStats = document.getElementById("HighStatsMenu").value;
@@ -82,6 +139,7 @@ $(document).ready(function(){
         var legendFilt = document.getElementById("LegendaryMenu").value;
         var typeFilt = document.getElementById("TypeMenu").value;
         var replaceName = "";
+        var imeg = "";
         //TODO: Make a second Type menu.
         if (pokeNames.toLowerCase().replace('primal ', '').replace(' ', '-').replace('\'','').replace(' forme', '').replace(' size', '').replace(' mode', '').replace('black-', '').replace('white-', '').replace(' cloak','').replace('%','')==""){
             pokeNames="";
@@ -93,20 +151,25 @@ $(document).ready(function(){
             var items = [];
             if (json.length != 0){
             $.each(json, function(key, val){
-                //TODO: Rotoms, Kyurems, Zygarde, Megas, Primals
-                replaceName = this.name.toLowerCase().replace(' x','XX').replace(' y','YY').replace('mega ', 'MM').replace('primal ', 'PP').replace('. ', '-').replace('jr.', 'jr').replace(' ', '-').replace('\'','').replace(' forme', '').replace(' size', '').replace(' mode', '').replace('black-', 'BB').replace('white-', 'WW').replace('♂','-m').replace('♀','-f').replace(' cloak','').replace('%','').replace('é','e').replace('é','e').replace('','');
+                replaceName = this.name.toLowerCase().replace('alolan ','AL').replace('dawn wings ','DW').replace('dusk mane ','DM').replace('ultra ','UU').replace('ash-','AA').replace(' x','XX').replace(' y','YY').replace('mega ', 'MM').replace('primal ', 'PP').replace('. ', '-').replace('jr.', 'jr').replace(' ', '-').replace('\'','').replace(' forme', '').replace(' size', '').replace(' mode', '').replace('black-', 'BB').replace('white-', 'WW').replace('♂','-m').replace('♀','-f').replace(' cloak','').replace('%','').replace('é','e').replace('é','e').replace(' style','').replace('’','').replace(':','');
                 if (replaceName.includes('MM')){replaceName = replaceName.replace('MM', '') + "-mega";}
                 if (replaceName.includes('XX')){replaceName = replaceName.replace('XX', '') + "-x";}
                 if (replaceName.includes('YY')){replaceName = replaceName.replace('YY', '') + "-y";}
                 if (replaceName.includes('PP')){replaceName = replaceName.replace('PP', '') + "-primal";}
                 if (replaceName.includes('BB')){replaceName = replaceName.replace('BB', '') + "-black";}
                 if (replaceName.includes('WW')){replaceName = replaceName.replace('WW', '') + "-white";}
+                if (replaceName.includes('AA')){replaceName = replaceName.replace('AA', '') + "-ash";}
+                if (replaceName.includes('AL')){replaceName = replaceName.replace('AL', '') + "-alolan";}
+                if (replaceName.includes('DW')){replaceName = replaceName.replace('DW', '') + "-dawn-wings";}
+                if (replaceName.includes('DM')){replaceName = replaceName.replace('DM', '') + "-dusk-mane";}
+                if (replaceName.includes('UU')){replaceName = replaceName.replace('UU', '') + "-ultra";}
                 if (replaceName.includes('-rotom')){replaceName = "rotom-" + replaceName.replace('-rotom', '');}
                 console.log(replaceName);
+
         items.push(
          "<li>" + " | "
         + val.number + " | "
-        + "<button onclick=\"pkmnImage.src='https://img.pokemondb.net/artwork/"+replaceName+".jpg';\" class='pkmnName lead'>" + val.name + "</button>" + " | "
+        + "<button onclick=\"checkArt(this.name);\" name="+replaceName+" class='pkmnName lead'>" + val.name + "</button>" + " | "
         + "Type 1: " + val.type1 + " | "
         + "Type 2: " + val.type2 + " | "
         + "Generation " + val.generation + " | "
@@ -125,28 +188,7 @@ $(document).ready(function(){
             items.push();
             $("#search-results").html(items);
         });
-    });
-
-
-//"<button onclick=\"document.createElement(<img class='pkmnImage' src='https://img.pokemondb.net/artwork/"+replaceName+".jpg'>);\" class='lead'>" + val.name + "</button>"
-
-
-    $("#gotoTop").click(function() {
-    document.body.scrollTop = 0; // For Safari
-    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-    });
-
-    window.onscroll = function() {scrollFunction()};
-
-    function scrollFunction() {
-    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    document.getElementById("gotoTop").style.display = "block";
-    } else {
-    document.getElementById("gotoTop").style.display = "none";
-    }}
-
-
-    dragElement(document.getElementById("images"));
+}
 
 function dragElement(elmnt) {
   var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
@@ -180,6 +222,10 @@ function dragElement(elmnt) {
     // set the element's new position:
     elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
     elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+    if((elmnt.offsetLeft - pos1)>10&&(elmnt.offsetLeft - pos1)<40&&(elmnt.offsetTop - pos2)>260&&(elmnt.offsetTop - pos2)<300){
+        elmnt.style.top = 280 + "px";
+        elmnt.style.left = 30 + "px";
+    }
   }
 
   function closeDragElement() {
@@ -187,13 +233,5 @@ function dragElement(elmnt) {
     document.onmouseup = null;
     document.onmousemove = null;
   }
-
-  function validateForm() {
-    var adress = document.forms["contactMe"]["adress"].value;
-    var name = document.forms["contactMe"]["name"].value;
-    var content = document.forms["contactMe"]["content"].value;
-    console.log(adress + ", " + name + ", " + content);
-    if (content == "") { alert("Hey, you forgot to give me somethign to read!"); return false;}
-    if (adress == "" || name == "") {if (!confirm("Do you want to be Anonymous?")) {return false;}}
-  }
-}});
+}
+});

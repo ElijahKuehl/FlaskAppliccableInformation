@@ -2,11 +2,11 @@ from flask import Flask, jsonify, render_template, request
 from sqlalchemy import create_engine
 app = Flask(__name__)
 
-###TODO list: Make the filter menus be check boxes for multiple results, add a result counter, fit to mobile, make a menu to exclude things,
+###TODO list: Add a result counter, fit to mobile
 
 Pokedex = "mysql+mysqlconnector://{username}:{password}@{hostname}/{databasename}".format(
     username="ElijahKuehl",
-    password="EndyStar9d9",
+    password="DarkusSQL9d9",
     hostname="ElijahKuehl.mysql.pythonanywhere-services.com",
     databasename="ElijahKuehl$Pokedex")
 
@@ -84,6 +84,10 @@ def process_inputs():
         genFilt = "AND generation=5 "
     elif generationFilt == "6":
         genFilt = "AND generation=6 "
+    elif generationFilt == "7":
+        genFilt = "AND generation=7 "
+    elif generationFilt == "8":
+        genFilt = "AND generation=8 "
     #Don't filter Generation
     else:
         genFilt = ""
@@ -141,4 +145,3 @@ def process_inputs():
 
     results = engine.execute(("SELECT id, number, name, type1, CASE type2 WHEN '' THEN 'None' ELSE type2 END AS type2, total, hp, attack, defense, sp_attack, sp_defense, speed, generation, CASE legendary WHEN 'False' THEN 'Not' WHEN 'True' THEN 'Is' END AS legendary FROM Pokedex WHERE name LIKE '%%{}%%' "+nameFilt+genFilt+legFilt+typFilt+sort+";").format(pokemon))
     return jsonify([(dict(row.items())) for row in results])
-
