@@ -13,18 +13,21 @@ $(document).ready(function(){
         $(".Generation").hide();
         $(".Legendary").hide();
         $(".Type").hide();
+        $("#resultCount").hide();
         $("#emailMe").hide();
-        document.getElementById("pkmnImage").src="https://img.pokemondb.net/artwork/victini.jpg";
+        checkArtJS("victini");
         document.getElementById("images").style.top = 280 + "px";
         document.getElementById("images").style.left = 30 + "px";
+        document.getElementById("pkmnImage").name = "victini";
         });
-
+//TODO: add a go to bottom
     $("#emailMe").hide();
     $(".sortMenu").hide();
     $(".sortBtn").show();
     $(".filterMenu").hide();
     $(".filterBtn").show();
     $("#search-results").hide();
+    $("#resultCount").hide();
 
 
     $("#search-button").click(function(){
@@ -86,13 +89,42 @@ $(document).ready(function(){
     });
 
     $("#artFlip").click(function(){
-        if(document.getElementById("artFlip").checked){document.getElementById("copyFlip").checked=true;}
-        else if(!document.getElementById("artFlip").checked){document.getElementById("copyFlip").checked=false;}
+        if(document.getElementById("artFlip").checked){
+            document.getElementById("copyFlip").checked=true;
+            checkArtJS(document.getElementById("pkmnImage").name);
+        }
+        else if(!document.getElementById("artFlip").checked){
+            document.getElementById("copyFlip").checked=false;
+            checkArtJS(document.getElementById("pkmnImage").name);
+        }
     });
     $("#copyFlip").click(function(){
-        if(document.getElementById("copyFlip").checked){document.getElementById("artFlip").checked=true;}
-        else if(!document.getElementById("copyFlip").checked){document.getElementById("artFlip").checked=false;}
+        if(document.getElementById("copyFlip").checked){
+            document.getElementById("artFlip").checked=true;
+            checkArtJS(document.getElementById("pkmnImage").name);
+        }
+        else if(!document.getElementById("copyFlip").checked){
+            document.getElementById("artFlip").checked=false;
+            checkArtJS(document.getElementById("pkmnImage").name);
+        }
     });
+
+    function checkArtJS(name){
+        if (!document.getElementById("artFlip").checked){
+            if (name=="silvally-normal"){name="silvally";}
+            else if (name=="minior-blue-core"){name="minior-core";}
+            imeg=name+".jpg";
+            pkmnImage.name=name;
+        }
+        else if (document.getElementById("artFlip").checked){
+            if (name=="silvally"){name="silvally-normal";}
+            else if (name=="minior-core"){name="minior-blue-core";}
+            imeg="vector/"+name+".png";
+            pkmnImage.name=name;
+        }
+        pkmnImage.src="https://img.pokemondb.net/artwork/"+imeg;
+    }
+
 
     window.onscroll = function() {scrollFunction()};
 
@@ -149,7 +181,11 @@ function search(event){
 
         $.getJSON( queryString, function (json) {
             var items = [];
+
             if (json.length != 0){
+                var s2 = "";
+                if(json.length > 1){s2="s";}
+                items.push(json.length + " result"+s2+" found!");
             $.each(json, function(key, val){
                 replaceName = this.name.toLowerCase().replace('alolan ','AL').replace('dawn wings ','DW').replace('dusk mane ','DM').replace('ultra ','UU').replace('ash-','AA').replace(' x','XX').replace(' y','YY').replace('mega ', 'MM').replace('primal ', 'PP').replace('. ', '-').replace('jr.', 'jr').replace(' ', '-').replace('\'','').replace(' forme', '').replace(' size', '').replace(' mode', '').replace('black-', 'BB').replace('white-', 'WW').replace('♂','-m').replace('♀','-f').replace(' cloak','').replace('%','').replace('é','e').replace('é','e').replace(' style','').replace('’','').replace(':','');
                 if (replaceName.includes('MM')){replaceName = replaceName.replace('MM', '') + "-mega";}
@@ -165,6 +201,7 @@ function search(event){
                 if (replaceName.includes('UU')){replaceName = replaceName.replace('UU', '') + "-ultra";}
                 if (replaceName.includes('-rotom')){replaceName = "rotom-" + replaceName.replace('-rotom', '');}
                 console.log(replaceName);
+
 
         items.push(
          "<li>" + " | "
@@ -183,7 +220,12 @@ function search(event){
         + "Special Defense: " + val.sp_defense + " | "
         + "Speed: " + val.speed + " | "
         + "</li>");
-        });}
+        });
+        /*var s = "";
+        if(json.length > 1){s="s";}
+        $("#resultCount").show();
+        document.getElementById("resultCount").innerHTML = json.length + " result"+s+" found!";*/
+        }
         else{items.push("Whoops! No results! Try something less specific.");}
             items.push();
             $("#search-results").html(items);

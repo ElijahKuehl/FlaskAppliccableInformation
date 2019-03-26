@@ -54,6 +54,7 @@ body{
     margin-right:auto;
     padding:10px;
     list-style:none;
+    border-radius: 5px;
 }
 #sort{
     text-align:center;
@@ -221,6 +222,15 @@ input:checked + .slider:before {
     display: inline-block;
     margin: 0px;
     margin-left: 16px;
+}
+
+#resultCount{
+    padding:10px;
+}
+
+.buttons{
+    border-radius:5px;
+    background:white;
 }
 
 TODO: Make this fit to mobile

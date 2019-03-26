@@ -2,8 +2,6 @@ from flask import Flask, jsonify, render_template, request
 from sqlalchemy import create_engine
 app = Flask(__name__)
 
-###TODO list: Add a result counter, fit to mobile
-
 Pokedex = "mysql+mysqlconnector://{username}:{password}@{hostname}/{databasename}".format(
     username="ElijahKuehl",
     password="DarkusSQL9d9",
