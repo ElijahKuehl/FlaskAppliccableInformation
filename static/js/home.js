@@ -13,15 +13,13 @@ $(document).ready(function(){
         $(".Generation").hide();
         $(".Legendary").hide();
         $(".Type").hide();
-        $("#resultCount").hide();
-        $("#emailMe").hide();
+        $("#gotoBottom").hide();
         checkArtJS("victini");
         document.getElementById("images").style.top = 280 + "px";
         document.getElementById("images").style.left = 30 + "px";
         document.getElementById("pkmnImage").name = "victini";
         });
-//TODO: add a go to bottom
-    $("#emailMe").hide();
+
     $(".sortMenu").hide();
     $(".sortBtn").show();
     $(".filterMenu").hide();
@@ -73,20 +71,8 @@ $(document).ready(function(){
         $("#TypeBtn").hide();
     });
 
-    $("#contact").click(function(){
-        $("#emailMe").show();
-    });
-
     $("#search-button").click(function(event) {search(event);});
 
-
-//"<button onclick=\"document.createElement(<img class='pkmnImage' src='https://img.pokemondb.net/artwork/"+replaceName+".jpg'>);\" class='lead'>" + val.name + "</button>"
-
-    //TODO: Make a go to bottom
-    $("#gotoTop").click(function() {
-    document.body.scrollTop = 0; // For Safari
-    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-    });
 
     $("#artFlip").click(function(){
         if(document.getElementById("artFlip").checked){
@@ -129,17 +115,19 @@ $(document).ready(function(){
     window.onscroll = function() {scrollFunction()};
 
     function scrollFunction() {
-    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    document.getElementById("gotoTop").style.display = "block";
-    } else {
-    document.getElementById("gotoTop").style.display = "none";
-    }
+    var scroll = $(window).scrollTop() + $(window).height();
+    var div = $('body');
+    var bottom = ((div.offset().top + div.height()) - scroll);
 
-    if (document.body.scrollTop > 320 || document.documentElement.scrollTop > 320) {
-        document.getElementById("copy").style.display = "block";
-    } else {
-        document.getElementById("copy").style.display = "none";
-    }}
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {$("#gotoTop").show();}
+    else {$("#gotoTop").hide();}
+
+    if (bottom > 20) {$("#gotoBottom").show();}
+    else {$("#gotoBottom").hide();}
+
+    if (document.body.scrollTop > 320 || document.documentElement.scrollTop > 320) {$("#copy").show();}
+    else {$("#copy").hide();}
+    }
 
 
     dragElement(document.getElementById("images"));
@@ -151,16 +139,6 @@ $(document).ready(function(){
         document.getElementById("search-button").click();
       }
     });
-/*
-function validateForm() {
-    var adress = document.forms["contactMe"]["adress"].value;
-    var name = document.forms["contactMe"]["name"].value;
-    var content = document.forms["contactMe"]["content"].value;
-    console.log(adress + ", " + name + ", " + content);
-    if (content == "") { alert("Hey, you forgot to give me somethign to read!"); return false;}
-    if (adress == "" || name == "") {if (!confirm("Do you want to be Anonymous?")) {return false;}}
-}
-*/
 
 function search(event){
         event.preventDefault();

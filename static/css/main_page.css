@@ -90,6 +90,23 @@ li{
     border-width:3px;
     padding:5px;
     position: fixed;
+    bottom: 55px;
+    right: 40px;
+    cursor: pointer;
+    border-radius: 10px;
+    z-index: 99;
+}
+
+#gotoBottom{
+    display: none;
+    font-size:15px;
+    color:Black;
+    border:none;
+    outline:none;
+    background-color:#ff9900;
+    border-width:3px;
+    padding:5px;
+    position: fixed;
     bottom: 20px;
     right: 30px;
     cursor: pointer;
@@ -213,10 +230,12 @@ input:checked + .slider:before {
 #copy{
     display: none;
     position: fixed;
-    bottom: 55px;
-    right: 46px;
+    bottom: 90px;
+    right: 55px;
     z-index: 99;
 }
+
+
 
 .text{
     display: inline-block;
