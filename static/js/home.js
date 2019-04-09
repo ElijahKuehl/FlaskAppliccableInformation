@@ -170,6 +170,7 @@ $(document).ready(function(){
             if (json.length != 0){
                 var s2 = "";
                 if(json.length > 1){s2="s";}
+                if(json.length < 6){document.getElementById("bgColour").style.height= "100%";}
                 items.push(json.length + " result"+s2+" found!");
                 $.each(json, function(key, val){
                     replaceName = this.name.toLowerCase().replace('alolan ','AL').replace('dawn wings ','DW').replace('dusk mane ','DM').replace('ultra ','UU').replace('ash-','AA').replace(' x','XX').replace(' y','YY').replace('mega ', 'MM').replace('primal ', 'PP').replace('black ', 'BB').replace('white ', 'WW')
