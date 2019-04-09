@@ -338,23 +338,31 @@
         multipliers(typ1);
         multipliers(typ2);
         console.log(multiplyer);
+        function fillBlock(type, list){
+            if (list==1){
+                document.getElementById(type).innerHTML="";
+            }
+            else{
+                document.getElementById(type).innerHTML=type.charAt(0).toUpperCase() + type.slice(1)+":       x"+list;
+            }
+        }
         document.getElementById("weaknesses").style.display = "block";
-        document.getElementById("fire").innerHTML="Fire:       x"+multiplyer.fire;
-        document.getElementById("water").innerHTML="Water:      x"+multiplyer.water;
-        document.getElementById("electric").innerHTML="Electric:   x"+multiplyer.electric;
-        document.getElementById("grass").innerHTML="Grass:      x"+multiplyer.grass;
-        document.getElementById("ice").innerHTML="Ice:        x"+multiplyer.ice;
-        document.getElementById("fighting").innerHTML="Fighting:   x"+multiplyer.fighting;
-        document.getElementById("poison").innerHTML="Poison:     x"+multiplyer.poison;
-        document.getElementById("ground").innerHTML="Ground:     x"+multiplyer.ground;
-        document.getElementById("flying").innerHTML="Flying:     x"+multiplyer.flying;
-        document.getElementById("psychic").innerHTML="Psychic:    x"+multiplyer.psychic;
-        document.getElementById("bug").innerHTML="Bug:        x"+multiplyer.bug;
-        document.getElementById("rock").innerHTML="Rock:       x"+multiplyer.rock;
-        document.getElementById("ghost").innerHTML="Ghost:      x"+multiplyer.ghost;
-        document.getElementById("dragon").innerHTML="Dragon:     x"+multiplyer.dragon;
-        document.getElementById("dark").innerHTML="Dark:       x"+multiplyer.dark;
-        document.getElementById("steel").innerHTML="Steel:      x"+multiplyer.steel;
-        document.getElementById("fairy").innerHTML="Fairy:      x"+multiplyer.fairy;
+        fillBlock("fire", multiplyer.fire);
+        fillBlock("water", multiplyer.water);
+        fillBlock("electric", multiplyer.electric);
+        fillBlock("grass", multiplyer.grass);
+        fillBlock("ice", multiplyer.ice);
+        fillBlock("fighting", multiplyer.fighting);
+        fillBlock("poison", multiplyer.poison);
+        fillBlock("ground", multiplyer.ground);
+        fillBlock("flying", multiplyer.flying);
+        fillBlock("psychic", multiplyer.psychic);
+        fillBlock("bug", multiplyer.bug);
+        fillBlock("rock", multiplyer.rock);
+        fillBlock("ghost", multiplyer.ghost);
+        fillBlock("dragon", multiplyer.dragon);
+        fillBlock("dark", multiplyer.dark);
+        fillBlock("steel", multiplyer.steel);
+        fillBlock("fairy", multiplyer.fairy);
     }
 </script>
