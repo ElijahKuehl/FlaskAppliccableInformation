@@ -40,35 +40,6 @@ $(document).ready(function(){
         document.getElementById("bgColour").style.height= "";
     });
 
-    function filterClick(name){
-        $("#"+name+"Btn").click(function(){
-            $("#"+name+"Menu").show();
-            $("#"+name+"Btn").hide();
-        });
-    }
-
-    filterClick("Generation");
-    filterClick("Legendary");
-    filterClick("Type2");
-
-    $("#search-button").click(function(){
-        $("#search-results").show();
-        $("#gotoBottom").show();
-    });
-
-    $("#HighStatsBtn").click(function(){
-        //$("#HighStatsMenu").show();
-        document.getElementById( "HighStatsMenu" ).style.display="inline-block";
-        console.log(document.getElementById("HighStatsMenu").style.display);
-        //document.getElementById("HighStatsBtn").style.display="none";
-        $("#HighStatsBtn").hide();
-    });
-
-    $("#LowStatsBtn").click(function(){
-        $("#LowStatsMenu").show();
-        $("#LowStatsBtn").hide();
-    });
-
     $(".sortBtn").click(function(){
         $(".sortMenu").hide();
         $(".sortMenu").val('Default');
@@ -80,6 +51,24 @@ $(document).ready(function(){
         $(".filterMenu").val('Default');
         $(".filterBtn").show();
         $("#Type2Btn").hide();
+    });
+
+    function filterClick(name){
+        $("#"+name+"Btn").click(function(){
+            $("#"+name+"Menu").show();
+            $("#"+name+"Btn").hide();
+        });
+    }
+
+    filterClick("Generation");
+    filterClick("Legendary");
+    filterClick("Type2");
+    filterClick("HighStats");
+    filterClick("LowStats");
+
+    $("#search-button").click(function(){
+        $("#search-results").show();
+        $("#gotoBottom").show();
     });
 
     $("#TypeBtn").click(function(){
@@ -127,7 +116,7 @@ $(document).ready(function(){
     }
 
 
-    window.onscroll = function() {scrollFunction()};
+    window.onscroll = function() {scrollFunction();};
 
     function scrollFunction() {
         var scroll = $(window).scrollTop() + $(window).height();
@@ -265,7 +254,7 @@ $(document).ready(function(){
             // set the element's new position:
             elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
             elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
-            console.log("edge1: "+($(window).width()-155)+"  edge2: "+($(window).width()-175)+"  "+(elmnt.offsetLeft - pos1))
+            console.log("edge1: "+($(window).width()-155)+"  edge2: "+($(window).width()-175)+"  "+(elmnt.offsetLeft - pos1));
             if(name=="img" && ((elmnt.offsetLeft - pos1)>10&&(elmnt.offsetLeft - pos1)<40&&(elmnt.offsetTop - pos2)>260&&(elmnt.offsetTop - pos2)<300)){
                 elmnt.style.top = 280 + "px";
                 elmnt.style.left = 30 + "px";
