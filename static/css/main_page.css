@@ -1,7 +1,8 @@
-body{
+html{
     background-color:#b69;
-    background: conic-gradient(#73f, #f93);
+    background: conic-gradient(#73f, #f80);
     text-align: center;
+    margin: 0;
 }
 
 
@@ -46,7 +47,7 @@ body{
     border:1px solid;
     padding:10px;
 }
-#search-results{
+.infoBox{
     border:solid;
     background-color:white;
     width:750px;
@@ -56,6 +57,19 @@ body{
     list-style:none;
     border-radius: 5px;
 }
+
+#weaknesses{
+    position: fixed;
+    width: 105px;
+    top: 30px;
+    left: 88%;
+}
+.weakText{
+    font-size:16px;
+    margin:0;
+    text-align:left;
+}
+
 #sort{
     text-align:center;
     }
@@ -137,28 +151,6 @@ li{
 #pkmnImage{
     max-height:150px;
     max-width:150px;
-}
-
-#emailMe{
-    width:750px;
-    text-align:center;
-    margin-left:auto;
-    margin-right:auto;
-    padding:10px;
-}
-.contactfields{
-    width:200px;
-}
-#emailContent{
-    height:50px;
-    width:400px;
-}
-.contact{
-    text-align:center;
-}
-
-textarea {
-   resize: none;
 }
 
 .pkmnName {
