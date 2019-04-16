@@ -36,8 +36,10 @@ $(document).ready(function(){
     $("#resultCount").hide();
 
     $("#search-button").click(function(event){
-        search(event);
         document.getElementById("bgColour").style.height= "";
+        search(event);
+        $("#search-results").show();
+        $("#gotoBottom").show();
     });
 
     $(".sortBtn").click(function(){
@@ -65,11 +67,6 @@ $(document).ready(function(){
     filterClick("Type2");
     filterClick("HighStats");
     filterClick("LowStats");
-
-    $("#search-button").click(function(){
-        $("#search-results").show();
-        $("#gotoBottom").show();
-    });
 
     $("#TypeBtn").click(function(){
         $("#TypeMenu").show();
@@ -170,7 +167,7 @@ $(document).ready(function(){
             if (json.length != 0){
                 var s2 = "";
                 if(json.length > 1){s2="s";}
-                if(json.length < 6){document.getElementById("bgColour").style.height= "100%";}
+                if(json.length < 6 && $(window).height()>700){document.getElementById("bgColour").style.height= "100%";} //console.log($(window).height());
                 items.push(json.length + " result"+s2+" found!");
                 $.each(json, function(key, val){
                     replaceName = this.name.toLowerCase().replace('alolan ','AL').replace('dawn wings ','DW').replace('dusk mane ','DM').replace('ultra ','UU').replace('ash-','AA').replace(' x','XX').replace(' y','YY').replace('mega ', 'MM').replace('primal ', 'PP').replace('black ', 'BB').replace('white ', 'WW')
@@ -255,12 +252,11 @@ $(document).ready(function(){
             // set the element's new position:
             elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
             elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
-            console.log("edge1: "+($(window).width()-155)+"  edge2: "+($(window).width()-175)+"  "+(elmnt.offsetLeft - pos1));
             if(name=="img" && ((elmnt.offsetLeft - pos1)>10&&(elmnt.offsetLeft - pos1)<40&&(elmnt.offsetTop - pos2)>260&&(elmnt.offsetTop - pos2)<300)){
                 elmnt.style.top = 280 + "px";
                 elmnt.style.left = 30 + "px";
             }
-            if(name=="weak" && ((elmnt.offsetLeft - pos1)>($(window).width()-175)&&(elmnt.offsetLeft - pos1)<($(window).width()-155)&&(elmnt.offsetTop - pos2)>0&&(elmnt.offsetTop - pos2)<40)){
+            if(name=="weak" && ((elmnt.offsetLeft - pos1)>($(window).width()*0.875)&&(elmnt.offsetLeft - pos1)<($(window).width()*0.885)&&(elmnt.offsetTop - pos2)>0&&(elmnt.offsetTop - pos2)<40)){
                 elmnt.style.top = 30 + "px";
                 elmnt.style.left = 88 + "%";
             }
