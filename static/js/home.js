@@ -42,6 +42,14 @@ $(document).ready(function(){
         $("#gotoBottom").show();
     });
 
+    $("#team").click(function(event){
+        document.getElementById("team").value="1";
+        document.getElementById("bgColour").style.height= "";
+        search(event);
+        $("#search-results").show();
+        $("#gotoBottom").show();
+    });
+
     $(".sortBtn").click(function(){
         $(".sortMenu").hide();
         $(".sortMenu").val('Default');
@@ -140,6 +148,7 @@ $(document).ready(function(){
       }
     });
 
+
     function search(event){
         event.preventDefault();
         var pokeNames = $("#search-bar").val();
@@ -149,6 +158,7 @@ $(document).ready(function(){
         var legendFilt = document.getElementById("LegendaryMenu").value;
         var typeFilt = document.getElementById("TypeMenu").value;
         var type2Filt = document.getElementById("Type2Menu").value;
+        var randTeam = document.getElementById("team").value;
         var replaceName = "";
         var imeg = "";
         //Ill be honest idk why I made this line. if (pokeNames.toLowerCase().replace('primal ', '').replace('\'','').replace(' forme', '').replace(' size', '').replace(' mode', '').replace('black ', '').replace('white ', '').replace(' cloak','').replace('%','')==""){pokeNames="";}
@@ -160,7 +170,9 @@ $(document).ready(function(){
         + "&generationFilt=" + generationFilt
         + "&legendFilt=" + legendFilt
         + "&typeFilt=" + typeFilt
-        + "&type2Filt=" + type2Filt;
+        + "&type2Filt=" + type2Filt
+        + "&randTeam=" + randTeam;
+        document.getElementById("team").value="0";
 
         $.getJSON( queryString, function (json) {
             var items = [];
@@ -211,6 +223,7 @@ $(document).ready(function(){
                 items.push("Whoops! No results! Try something less specific.");
                 document.getElementById("bgColour").style.height= "100%";
             }
+            console.log(items);
             items.push();
             $("#search-results").html(items);
         });

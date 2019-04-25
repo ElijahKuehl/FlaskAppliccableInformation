@@ -14,6 +14,7 @@ engine = create_engine(Pokedex)
 def index():
     return render_template('main_page.html')
 
+
 @app.route('/pokedex', methods=['Get'])
 def process_inputs():
     pokemon = request.args["pokeName"]
@@ -23,6 +24,7 @@ def process_inputs():
     legendFilt = request.args["legendFilt"]
     typeFilt = request.args["typeFilt"]
     type2Filt = request.args["type2Filt"]
+    randTeam = request.args["randTeam"]
     nameFilt = ""
 
     if ' -' in pokemon:
@@ -35,8 +37,10 @@ def process_inputs():
         pokemon = pokemon.split(' -')[0]
 
 
-    #Sort by Stats, highest first.
-    if highStats != "Default" and lowStats == "Default":
+    #Sort by Stats, highest first, if a random team wasnt requested.
+    if randTeam == "1":
+        sort = "ORDER BY RAND() LIMIT 6"
+    elif highStats != "Default" and lowStats == "Default":
         sort = "ORDER BY "+ highStats +" DESC"
     #Sort by Stats, lowest first.
     elif lowStats != "Default" and highStats == "Default":
@@ -73,4 +77,5 @@ def process_inputs():
     typ2Filt = types(type2Filt)
 
     results = engine.execute(("SELECT id, number, name, type1, CASE type2 WHEN '' THEN 'None' ELSE type2 END AS type2, total, hp, attack, defense, sp_attack, sp_defense, speed, generation, CASE legendary WHEN 'False' THEN 'Not' WHEN 'True' THEN 'Is' END AS legendary FROM Pokedex WHERE name LIKE '%%{}%%' "+nameFilt+genFilt+legFilt+typFilt+typ2Filt+sort+";").format(pokemon))
+
     return jsonify([(dict(row.items())) for row in results])
