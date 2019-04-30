@@ -1,41 +1,54 @@
-var searchbtn = document.getElementById("search-button");
+// elements
+var searchBtn = document.getElementById("search-button");
+var teamBtn = document.getElementById("team");
+var bgColor = document.getElementById("bgColour");
+var searchResults = document.getElementById("search-results");
+var gotoBottom = document.getElementById("gotoBottom");
+var sortMenu = document.getElementByClassName("sortMenu");
+var sortBtn = document.getElementByClassName("sortBtn");
+var filterClear = document.getElementById("filterClear");
+var filterMenu = document.getElementByClassName("filterMenu");
+var filterBtn = document.getElementByClassName("filterBtn");
+var type2Btn = document.getElementById("Type2Btn");
+var typeBtn = document.getElementById("TypeBtn");
+var typeMenu = document.getElementById("TypeMenu");
 
-function searchBtn() {
-    searchbtn.click(function(event){
-    document.getElementById("bgColour").style.height= "";
+searchBtn.addEventListener("click", searchBtnAction);
+teamBtn.addEventListener("click", teamBtnAction);
+sortBtn.addEventListener("click", sortBtnAction);
+filterClear.addEventListener("click", filterClearAction);
+typeBtn.addEventListener("click", typeBtnAction);
+
+function searchBtnAction() {
+    bgColor.style.height= "";
     search(event);
-    $("#search-results").show();
-    $("#gotoBottom").show();
-    });
+    searchResults.show();
+    gotoBottom.show();
 }
 
 
+function teamBtnAction(){
+    teamBtn.value="1";
+    searchBtnAction();
+}
 
-$("#team").click(function(event){
-    document.getElementById("team").value="1";
-    document.getElementById("bgColour").style.height= "";
-    search(event);
-    $("#search-results").show();
-    $("#gotoBottom").show();
-});
+function sortBtnAction(){
+    sortMenu.hide();
+    sortMenu.val('Default');
+    sortBtn.show();
+}
 
-$(".sortBtn").click(function(){
-    $(".sortMenu").hide();
-    $(".sortMenu").val('Default');
-    $(".sortBtn").show();
-});
-
-$("#filterClear").click(function(){
-    $(".filterMenu").hide();
-    $(".filterMenu").val('Default');
-    $(".filterBtn").show();
-    $("#Type2Btn").hide();
-});
+function filterClearAction(){
+    filterMenu.hide();
+    filterMenu.val('Default');
+    filterBtn".show();
+    type2Btn.hide();
+}
 
 function filterClick(name){
-    $("#"+name+"Btn").click(function(){
-        $("#"+name+"Menu").show();
-        $("#"+name+"Btn").hide();
+    document.getElementById(name+"Btn").click(function(){
+        document.getElementById(name+"Menu").show();
+        document.getElementById(name+"Btn").hide();
     });
 }
 
@@ -45,8 +58,8 @@ filterClick("Type2");
 filterClick("HighStats");
 filterClick("LowStats");
 
-$("#TypeBtn").click(function(){
-    $("#TypeMenu").show();
-    $("#TypeBtn").hide();
-    $("#Type2Btn").show();
-});
+function typeBtnAction(){
+    typeMenu.show();
+    typeBtn.hide();
+    type2Btn.show();
+}
