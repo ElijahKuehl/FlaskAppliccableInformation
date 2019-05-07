@@ -1,41 +1,19 @@
-html{
-    background-color:#b69;
-    background: conic-gradient(#73f, #f80);
-    text-align: center;
-    margin: 0;
+body{
+    background-color:#33ccff;
 }
-
-
 #logo{
     width:750px;
     font-size:75px;
     font-family:monospace;
-    color:#f44 /*ff8000*/;
+    color:#ff0606;
     border-style:solid;
-    border-color:#000000cd;
+    border-color:#ff0066;
     background-color: white;
     text-align:center;
     border-width:5px;
     margin-left:auto;
     margin-right:auto;
     padding:10px;
-    margin-bottom:30px;
-    /*
-    For 'Dex-Star'
-
-    width: 600px;
-    font-size: 100px;
-    font-family: monospace;
-    color: #ff8000;
-    border-style: solid;
-    border-color: #000000cd;
-    background-color: white;
-    text-align: center;
-    border-width: 5px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 4px;
-    */
 }
 #search-line{
     text-align:center;
@@ -47,41 +25,40 @@ html{
     border:1px solid;
     padding:10px;
 }
-.infoBox{
+#search-results{
     border:solid;
     background-color:white;
     width:750px;
     margin-left:auto;
     margin-right:auto;
     padding:10px;
-    list-style:none;
-    border-radius: 5px;
 }
-
-#weaknesses{
-    position: fixed;
-    width: 105px;
-    top: 30px;
-    left: 88%;
-}
-.weakText{
-    font-size:16px;
-    margin:0;
-    text-align:left;
-}
-
 #sort{
     text-align:center;
     }
 #filter{
     text-align:center;
 }
-
-.lead{
+/*
+.StatLow{
     border-width:0px;
-    background-color:#00000000;
     }
-
+.StatHigh{
+    border-width:0px;
+    }
+.Generation{
+    border-width:0px;
+    }
+.Legendary{
+    border-width:0px;
+    }
+.Type{
+    border-width:0px;
+    }
+#StatLow, #StatHigh, #Legendary, #Type, #Name, #Alpahbetically, #Number, #Generation{
+    background-color: white;
+}
+*/
 #disclamer{
     text-align:center;
     }
@@ -89,159 +66,6 @@ html{
     text-align:center;
     font-size:12px;
 }
-
 li{
     padding:10px;
 }
-
-#gotoTop{
-    display: none;
-    font-size:15px;
-    color:Black;
-    border:none;
-    outline:none;
-    background-color:#ff9900;
-    border-width:3px;
-    padding:5px;
-    position: fixed;
-    bottom: 55px;
-    right: 40px;
-    cursor: pointer;
-    border-radius: 10px;
-    z-index: 99;
-}
-
-#gotoBottom{
-    display: none;
-    font-size:15px;
-    color:Black;
-    border:none;
-    outline:none;
-    background-color:#ff9900;
-    border-width:3px;
-    padding:5px;
-    position: fixed;
-    bottom: 20px;
-    right: 30px;
-    cursor: pointer;
-    border-radius: 10px;
-    z-index: 99;
-}
-
-#gotoTop:hover{
-    background-color:#ee8800;
-}
-
-#images{
-    color: #ff8000;
-    border-style: solid;
-    border-color: #000000cd;
-    background-color: white;
-    text-align: center;
-    border-width: 5px;
-    padding: 18px;
-    width: 165px;
-    border-radius: 50px;
-    margin-left: 0px;
-    position: fixed;
-    top: 280px;
-    left: 30px;
-}
-
-#pkmnImage{
-    max-height:150px;
-    max-width:150px;
-}
-
-.pkmnName {
-    color:#323232;
-}
-
-
-
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 34px;
-}
-
-/* Hide default HTML checkbox */
-.switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-/* The slider */
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 10px;
-  right: -10px;
-  bottom: 0;
-  background-color: #3ae;
-  -webkit-transition: .4s;
-  transition: .4s;
-}
-
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 26px;
-  width: 26px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
-}
-
-input:checked + .slider:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
-}
-
-/* Rounded sliders */
-.slider.round {
-  border-radius: 34px;
-}
-
-.slider.round:before {
-  border-radius: 50%;
-}
-
-#switch{
-    font-size:20px;
-    vertical-align:middle;
-    line-height:30px;
-}
-
-#copy{
-    display: none;
-    position: fixed;
-    bottom: 90px;
-    right: 55px;
-    z-index: 99;
-}
-
-
-
-.text{
-    display: inline-block;
-    margin: 0px;
-    margin-left: 16px;
-}
-
-#resultCount{
-    padding:10px;
-}
-
-.buttons{
-    border-radius:5px;
-    background:white;
-}
-
-TODO: Make this fit to mobile

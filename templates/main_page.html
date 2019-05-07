@@ -1,368 +1,72 @@
 <!DOCTYPE html>
-<html id="bgColour" style="height: 100%;">
+<html>
     <head>
         <title>Pok-à-pplicable Information</title>
-        <link href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAx8fH/8fHx//Hx8f/x8fH/8fHx//Hx8f/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAx8fH/+Pj4//y8vL/8vLy//Ly8v/y8vL/4+Pj/8fHx/8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAx8fH/+Pj4//y8vL///////////////////////Ly8v/j4+P/x8fH/wAAAAAAAAAAAAAAAAAAAAAAAAAAx8fH/+Pj4//y8vL///////////////9/////f///////////8vLy/+Pj4//Hx8f/AAAAAAAAAAAAAAAAAAAAAMfHx//y8vL///////////////9/AAAA/wAAAP////9////////////y8vL/x8fH/wAAAAAAAAAAAAAAAAAAAADj4+P/8vLy//////////9/AAAA/wAAAH4AAAB+AAAA/////3//////8vLy/+Pj4/8AAAAAAAAAAAAAAAAAAAAAAIPg/wCO8v8Alf//AJX/fgAAAP8AAAB+AAAAfgAAAP//M3d//zN3/8QxYv+wLFj/AAAAAAAAAAAAAAAAAAAAAACD4P8Alf//AJX//wCV//8Alf9+AAAA/wAAAP//M3d//zN3//8zd///M3f/sCxY/wAAAAAAAAAAAAAAAAAAAAAAlf//AJX//wCV//8Alf//AJX//wCV/37/M3d//zN3//8zd///M3f//zN3//8zd/8AAAAAAAAAAAAAAAAAAAAAAAAAAACV//8Alf//AJX//wCV//8Alf///zN3//8zd///M3f//zN3//8zd/8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJX//wCV//8Alf//AJX///8zd///M3f//zN3//8zd/8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlf//AJX//wCV////M3f//zN3//8zd/8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//8AAP//AAD4HwAA8A8AAOAHAADBgwAAwkMAAMWjAADFowAAwkMAAMGDAADgBwAA8A8AAPgfAAD//wAA//8AAA==" rel="icon" type="image/x-icon" />
+        <link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA////APDw8AD/rgAA1tbWANauAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEiREAAAAAAERIiRAAAAAERESIkQAAAEREREiJEAAARERERIkQAABEREAESRAAAEREAABJEAAAzMwAANVUAADMzMAM1VQAAMzMzMzVVAAAzMzMzVVUAAAMzMzNVUAAAADMzNVUAAAAAAzNVUAAAAAAAAAAAAAD//wAA+B8AAPAPAADgBwAAwAMAAMADAADAAwAAwAMAAMADAADAAwAAwAMAAMADAADgBwAA8A8AAPgfAAD//wAA"
+        rel="icon" type="image/x-icon" />
         <script src='http://code.jquery.com/jquery-1.11.1.min.js'></script>
         <link rel='stylesheet' type='text/css' href='static/css/main_page.css'>
         <script src='static/js/home.js'></script>
     </head>
     <body>
-        <button id="gotoTop" title="Go to top" onclick="window.scrollBy(0, -100000);">Go to top</button>
         <h1 id="logo">Pok-à-pplicable Information</h1>
-
-        <div id="images" >
-            <img id="pkmnImage" name="victini" src="https://img.pokemondb.net/artwork/victini.jpg" ondblclick="window.open(this.src);">
-        </div>
-
-        <div id="switch">
-        <p class="text">Sugimori Art </p><label class="switch"><input id=artFlip type="checkbox"><span class="slider round"></span></label><p class="text"> Global Link Art</p>
-        </div>
-
-        <!--TODO: Mabye label this switch 'Art'?-->
-        <label id="copy" class="switch"><input id="copyFlip" type="checkbox"><span class="slider round"></span></label>
-
         <p id="search-line">
-        <input id="search-bar" placeholder="Search your Pokemon here"> <button id="search-button" class="buttons">Search</button> <button id="clear" class="buttons">Clear</button> <button id="team" class="buttons" value="0">Random Team</button>
+        <input id="search-bar" placeholder="Search your Pokemon here"> <button id="search-button" class="buttons">Search</button> <button id="clear">Clear</button>
+<!--
+        <p id="sort"> Sort by:
+            <button ID="StatHigh"> Stat High </button>
+                <button class="StatHigh" > Total </button>
+                <button class="StatHigh" > HP </button>
+                <button class="StatHigh" > Attack </button>
+                <button class="StatHigh" > Defense </button>
+                <button class="StatHigh" > Sp. Atack </button>
+                <button class="StatHigh" > SP. Defense </button>
+                <button class="StatHigh" > Speed </button>
+            <button ID="StatLow"> Stat Low </button>
+                <button class="StatLow" > Total </button>
+                <button class="StatLow" > HP </button>
+                <button class="StatLow" > Attack </button>
+                <button class="StatLow" > Defense </button>
+                <button class="StatLow" > Sp. Atack </button>
+                <button class="StatLow" > SP. Defense </button>
+                <button class="StatLow" > Speed </button>
+                </p>
+        <p id="filter"> Filter by:
+            <button ID="Generation"> Generation </button>
+                <button class="Generation"> 1 </button>
+                <button class="Generation"> 2 </button>
+                <button class="Generation"> 3 </button>
+                <button class="Generation"> 4 </button>
+                <button class="Generation"> 5 </button>
+                <button class="Generation"> 6 </button>
+            <button ID="Legendary"> Legendary </button>
+                <button class="Legendary"> Yes </button>
+                <button class="Legendary"> No </button>
+            <button ID="Type"> Type </button>
+                <button class="Type"> Bug </button>
+                <button class="Type"> Dragon </button>
+                <button class="Type"> Ice </button>
+                <button class="Type"> Fighting </button>
+                <button class="Type"> Fire </button>
+                <button class="Type"> Flying </button>
+                <button class="Type"> Grass </button>
+                <button class="Type"> Ghost </button>
+                <button class="Type"> Ground </button>
+                <button class="Type"> Eletric </button>
+                <button class="Type"> Normal </button>
+                <button class="Type"> Posion </button>
+                <button class="Type"> Psychic </button>
+                <button class="Type"> Rock </button>
+                <button class="Type"> Water </button>
+                <button class="Type"> Dark </button>
+                <button class="Type"> Steel </button>
+                <button class="Type"> Fairy </button>
         </p>
+-->
+        <p id="search-results"></p>
+        <p ID="disclamer">Sorry folks! Nothing beyond Generation 6 yet!</p>
+        <p class="copyright">Pokémon And All Respective Names are Trademark & © of Nintendo 1996-2018. Data created by <a href="https://data.world/data-society/pokemon-with-stats/workspace/file?filename=Pokemon.csv">Data Society</a>.</p>
 
-        <p id="sort">
-            <button class="sortBtn lead">Sort by:</button>
-
-            <button id="HighStatsBtn" class="sortBtn buttons"> High Stats </button>
-            <select id="HighStatsMenu" class="sortMenu" name="HighStats">
-                <option value="Default">High Stats</option>
-                <option value="total">Total</option>
-                <option value="hp">HP</option>
-                <option value="attack">Attack</option>
-                <option value="defense">Defense</option>
-                <option value="sp_attack">Sp.Attack</option>
-                <option value="sp_defense">Sp.Defense</option>
-                <option value="speed">Speed</option>
-            </select>
-
-            <button id="LowStatsBtn" class="sortBtn buttons"> Low Stats </button>
-            <select id="LowStatsMenu" class="sortMenu" name="LowStats">
-                <option value="Default">Low Stats</option>
-                <option value="total">Total</option>
-                <option value="hp">HP</option>
-                <option value="attack">Attack</option>
-                <option value="defense">Defense</option>
-                <option value="sp_attack">Sp.Attack</option>
-                <option value="sp_defense">Sp.Defense</option>
-                <option value="speed">Speed</option>
-            </select>
         </p>
-
-
-        <p id="filter">
-            <button id="filterClear" class="filterBtn lead">Filter by:</button>
-
-            <button id="GenerationBtn" class="filterBtn buttons"> Generation </button>
-            <select id="GenerationMenu" class="filterMenu" name="Generation">
-                <option value="Default">Generation</option>
-                <option value="1">Gen 1</option>
-                <option value="2">Gen 2</option>
-                <option value="3">Gen 3</option>
-                <option value="4">Gen 4</option>
-                <option value="5">Gen 5</option>
-                <option value="6">Gen 6</option>
-                <option value="7">Gen 7</option>
-                <option value="8">Gen 8</option>
-            </select>
-
-            <button id="LegendaryBtn" class="filterBtn buttons"> Legendary </button>
-            <select id="LegendaryMenu" class="filterMenu" name="Legendary">
-                <option value="Default">Legendary</option>
-                <option value="True">Is Legendary</option>
-                <option value="False">Not Legendary</option>
-            </select>
-
-            <button id="TypeBtn" class="filterBtn buttons"> Type </button>
-            <select id="TypeMenu" class="filterMenu" name="Type">
-                <option value="Default">Type</option>
-                <option value="Normal">Normal</option>
-                <option value="Fire">Fire</option>
-                <option value="Water">Water</option>
-                <option value="Electric">Electric</option>
-                <option value="Grass">Grass</option>
-                <option value="Ice">Ice</option>
-                <option value="Fighting">Fighting</option>
-                <option value="Poison">Poison</option>
-                <option value="Ground">Ground</option>
-                <option value="Flying">Flying</option>
-                <option value="Psychic">Psychic</option>
-                <option value="Bug">Bug</option>
-                <option value="Rock">Rock</option>
-                <option value="Ghost">Ghost</option>
-                <option value="Dragon">Dragon</option>
-                <option value="Dark">Dark</option>
-                <option value="Steel">Steel</option>
-                <option value="Fairy">Fairy</option>
-                <option value="None">None</option>
-            </select>
-            <button id="Type2Btn" class="filterBtn buttons"> Type 2 </button>
-            <select id="Type2Menu" class="filterMenu" name="Type2">
-                <option value="Default">Type 2</option>
-                <option value="Normal">Normal</option>
-                <option value="Fire">Fire</option>
-                <option value="Water">Water</option>
-                <option value="Electric">Electric</option>
-                <option value="Grass">Grass</option>
-                <option value="Ice">Ice</option>
-                <option value="Fighting">Fighting</option>
-                <option value="Poison">Poison</option>
-                <option value="Ground">Ground</option>
-                <option value="Flying">Flying</option>
-                <option value="Psychic">Psychic</option>
-                <option value="Bug">Bug</option>
-                <option value="Rock">Rock</option>
-                <option value="Ghost">Ghost</option>
-                <option value="Dragon">Dragon</option>
-                <option value="Dark">Dark</option>
-                <option value="Steel">Steel</option>
-                <option value="Fairy">Fairy</option>
-                <option value="None">None</option>
-            </select>
-        </p>
-
-        <div id="weaknesses" class="infoBox">
-            <h4 class="weakText">Weaknesses</h4>
-            <p class="weakText">(Damage taken)</p>
-            <p class="weakText">-------------------</p>
-            <p class="weakText" id="fire">Fire:       </p>
-            <p class="weakText" id="water">Water:      </p>
-            <p class="weakText" id="electric">Electric:   </p>
-            <p class="weakText" id="grass">Grass:      </p>
-            <p class="weakText" id="ice">Ice:        </p>
-            <p class="weakText" id="fighting">Fighting:   </p>
-            <p class="weakText" id="poison">Poison:     </p>
-            <p class="weakText" id="ground">Ground:     </p>
-            <p class="weakText" id="flying">Flying:     </p>
-            <p class="weakText" id="psychic">Psychic:    </p>
-            <p class="weakText" id="bug">Bug:        </p>
-            <p class="weakText" id="rock">Rock:       </p>
-            <p class="weakText" id="ghost">Ghost:      </p>
-            <p class="weakText" id="dragon">Dragon:     </p>
-            <p class="weakText" id="dark">Dark:       </p>
-            <p class="weakText" id="steel">Steel:      </p>
-            <p class="weakText" id="fairy">Fairy:      </p>
-        </div>
-        <p id="search-results" class="infoBox"></p>
-        <p id="disclamer">Now updated to gen 7! All art may not be available.</p>
-        <p>Find something wrong? Contact me at kuehl.elijah.b@gmail.com!</p>
-        <p class="copyright">Pokémon and all respective names are Trademark & © of Nintendo 1996-2019. Data created by <a href="https://data.world/data-society/pokemon-with-stats/workspace/file?filename=Pokemon.csv">Data Society</a> and <a href="https://www.serebii.net/">Serebii</a>. Images Used from <a href="https://pokemondb.net/">Pokemon Database</a>.</p>
-        <!--<p class="copyright">All design is Intelectual Property of Elijah Kuehl and Applicable Information 2017-2019</p>-->
-        <button id="gotoBottom" title="Go to bottom" onclick="window.scrollBy(0, 100000);">Go to bottom</button>
-        <!-- TODO: $(window).height() gets how tall the screen is. Use this to determine how many brs you need -->
-        <br>
     </body>
 </html>
-<script>
-    function checkArt(name){
-        if (!document.getElementById("artFlip").checked){
-            if (name=="silvally-normal"){name="silvally";}
-            else if (name=="minior-blue-core"){name="minior-core";}
-            imeg=name+".jpg";
-            pkmnImage.name=name;
-        }
-        else if (document.getElementById("artFlip").checked){
-            if (name=="silvally"){name="silvally-normal";}
-            else if (name=="minior-core"){name="minior-blue-core";}
-            imeg="vector/"+name+".png";
-            pkmnImage.name=name;
-        }
-        pkmnImage.src="https://img.pokemondb.net/artwork/"+imeg;
-    }
-
-    function weaknesses(typ1,typ2){
-        console.log(typ1+", "+typ2);
-        var multiplyer = {fire:1, water:1, electric:1, grass:1, ice:1, fighting:1, poison:1, ground:1, flying:1, psychic:1, bug:1, rock:1, ghost:1, dragon:1, dark:1, steel:1, fairy:1};
-        function multipliers(typ){
-            if (typ=="Normal"){
-                multiplyer.fighting*=2;
-                multiplyer.ghost*=0;
-            }
-            else if(typ=="Fire"){
-                multiplyer.fire*=0.5;
-                multiplyer.water*=2;
-                multiplyer.grass*=0.5;
-                multiplyer.ground*=2;
-                multiplyer.bug*=0.5;
-                multiplyer.rock*=2;
-                multiplyer.steel*=0.5;
-                multiplyer.fairy*=0.5;
-            }
-            else if(typ=="Water"){
-                multiplyer.fire*=0.5;
-                multiplyer.water*=0.5;
-                multiplyer.electric*=2;
-                multiplyer.grass*=2;
-                multiplyer.ice*=0.5;
-                multiplyer.steel*=0.5;
-            }
-            else if(typ=="Electric"){
-                multiplyer.electric*=0.5;
-                multiplyer.ground*=2;
-                multiplyer.flying*=0.5;
-                multiplyer.steel*=0.5;
-            }
-            else if(typ=="Grass"){
-                multiplyer.fire*=2;
-                multiplyer.water*=0.5;
-                multiplyer.electric*=0.5;
-                multiplyer.grass*=0.5;
-                multiplyer.ice*=2;
-                multiplyer.poison*=2;
-                multiplyer.ground*=0.5;
-                multiplyer.flying*=2;
-                multiplyer.bug*=2;
-            }
-            else if(typ=="Ice"){
-                multiplyer.fire*=2;
-                multiplyer.ice*=0.5;
-                multiplyer.fighting*=2;
-                multiplyer.rock*=2;
-                multiplyer.steel*=2;
-            }
-            else if(typ=="Fighting"){
-                multiplyer.flying*=2;
-                multiplyer.psychic*=2;
-                multiplyer.bug*=0.5;
-                multiplyer.rock*=0.5;
-                multiplyer.dark*=0.5;
-                multiplyer.fairy*=2;
-            }
-            else if(typ=="Poison"){
-                multiplyer.grass*=0.5;
-                multiplyer.fighting*=0.5;
-                multiplyer.poison*=0.5;
-                multiplyer.ground*=2;
-                multiplyer.psychic*=2;
-                multiplyer.bug*=0.5;
-                multiplyer.fairy*=0.5;
-            }
-            else if(typ=="Ground"){
-                multiplyer.waterc*=2;
-                multiplyer.electric*=0;
-                multiplyer.grass*=2;
-                multiplyer.ice*=2;
-                multiplyer.poison*=0.5;
-                multiplyer.rock*=0.5;
-            }
-            else if(typ=="Flying"){
-                multiplyer.electric*=2;
-                multiplyer.grass*=0.5;
-                multiplyer.ice*=2;
-                multiplyer.fighting*=0.5;
-                multiplyer.ground*=0;
-                multiplyer.bug*=0.5;
-                multiplyer.rock*=2;
-            }
-            else if(typ=="Psychic"){
-                multiplyer.fighting*=0.5;
-                multiplyer.psychic*=0.5;
-                multiplyer.bug*=2;
-                multiplyer.ghost*=2;
-                multiplyer.dark*=2;
-            }
-            else if(typ=="Bug"){
-                multiplyer.fire*=2;
-                multiplyer.grass*=0.5;
-                multiplyer.fighting*=0.5;
-                multiplyer.ground*=0.5;
-                multiplyer.flying*=2;
-                multiplyer.rock*=2;
-            }
-            else if(typ=="Rock"){
-                multiplyer.normal*=0.5;
-                multiplyer.fire*=0.5;
-                multiplyer.water*=2;
-                multiplyer.grass*=2;
-                multiplyer.fighting*=2;
-                multiplyer.poison*=0.5;
-                multiplyer.ground*=2;
-                multiplyer.flying*=0.5;
-                multiplyer.steel*=2;
-            }
-            else if(typ=="Ghost"){
-                multiplyer.normal*=0;
-                multiplyer.fighting*=0;
-                multiplyer.poison*=0.5;
-                multiplyer.bug*=0.5;
-                multiplyer.ghost*=2;
-                multiplyer.dark*=2;
-            }
-            else if(typ=="Dragon"){
-                multiplyer.fire*=0.5;
-                multiplyer.water*=0.5;
-                multiplyer.electric*=0.5;
-                multiplyer.grass*=0.5;
-                multiplyer.ice*=2;
-                multiplyer.dragon*=2;
-                multiplyer.fairy*=2;
-            }
-            else if(typ=="Dark"){
-                multiplyer.fighting*=2;
-                multiplyer.psychic*=0;
-                multiplyer.bug*=2;
-                multiplyer.ghost*=0.5;
-                multiplyer.dark*=0.5;
-                multiplyer.fairy*=2;
-            }
-            else if(typ=="Steel"){
-                multiplyer.normal*=0.5;
-                multiplyer.fire*=2;
-                multiplyer.grass*=0.5;
-                multiplyer.ice*=0.5;
-                multiplyer.fighting*=2;
-                multiplyer.poison*=0;
-                multiplyer.ground*=2;
-                multiplyer.flying*=0.5;
-                multiplyer.psychic*=0.5;
-                multiplyer.bug*=0.5;
-                multiplyer.rock*=0.5;
-                multiplyer.dragon*=0.5;
-                multiplyer.steel*=0.5;
-                multiplyer.fairy*=0.5;
-            }
-            else if(typ=="Fairy"){
-                multiplyer.fighting*=0.5;
-                multiplyer.poison*=2;
-                multiplyer.bug*=0.5;
-                multiplyer.dragon*=0;
-                multiplyer.dark*=0.5;
-                multiplyer.steel*=2;
-            }
-        }
-        multipliers(typ1);
-        multipliers(typ2);
-        console.log(multiplyer);
-        function fillBlock(type, list){
-            if (list==1){
-                document.getElementById(type).innerHTML="";
-            }
-            else{
-                document.getElementById(type).innerHTML=type.charAt(0).toUpperCase() + type.slice(1)+":       x"+list;
-            }
-        }
-        document.getElementById("weaknesses").style.display = "block";
-        fillBlock("fire", multiplyer.fire);
-        fillBlock("water", multiplyer.water);
-        fillBlock("electric", multiplyer.electric);
-        fillBlock("grass", multiplyer.grass);
-        fillBlock("ice", multiplyer.ice);
-        fillBlock("fighting", multiplyer.fighting);
-        fillBlock("poison", multiplyer.poison);
-        fillBlock("ground", multiplyer.ground);
-        fillBlock("flying", multiplyer.flying);
-        fillBlock("psychic", multiplyer.psychic);
-        fillBlock("bug", multiplyer.bug);
-        fillBlock("rock", multiplyer.rock);
-        fillBlock("ghost", multiplyer.ghost);
-        fillBlock("dragon", multiplyer.dragon);
-        fillBlock("dark", multiplyer.dark);
-        fillBlock("steel", multiplyer.steel);
-        fillBlock("fairy", multiplyer.fairy);
-    }
-</script>
