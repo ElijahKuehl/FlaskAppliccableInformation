@@ -1,6 +1,3 @@
-var images = document.getElementById("images");
-var weaknesses = document.getElementById("weaknesses");
-
 dragElement(images, "img");
 dragElement(weaknesses, "weak");
 

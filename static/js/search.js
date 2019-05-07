@@ -1,20 +1,17 @@
-var teamBtn = document.getElementById("team");
-var pokeNames = $("#search-bar").val();
-var highStats = document.getElementById("HighStatsMenu").value;
-var lowStats = document.getElementById("LowStatsMenu").value;
-var generationFilt = document.getElementById("GenerationMenu").value;
-var legendFilt = document.getElementById("LegendaryMenu").value;
-var typeFilt = document.getElementById("TypeMenu").value;
-var type2Filt = document.getElementById("Type2Menu").value;
-var randTeam = teamBtn.value;
-var replaceName = "";
-var imeg = "";
-
-
-
 function search(event){
     event.preventDefault();
     //Ill be honest idk why I made this line. if (pokeNames.toLowerCase().replace('primal ', '').replace('\'','').replace(' forme', '').replace(' size', '').replace(' mode', '').replace('black ', '').replace('white ', '').replace(' cloak','').replace('%','')==""){pokeNames="";}
+
+    pokeNames = document.getElementById("search-bar").value;
+    highStats = document.getElementById("HighStatsMenu").value;
+    lowStats = document.getElementById("LowStatsMenu").value;
+    generationFilt = document.getElementById("GenerationMenu").value;
+    legendFilt = document.getElementById("LegendaryMenu").value;
+    typeFilt = document.getElementById("TypeMenu").value;
+    type2Filt = document.getElementById("Type2Menu").value;
+    randTeam = randTeamBtn.value;
+    replaceName = "";
+
     //This gets sent to python
     var queryString = "/pokedex"
     + "?pokeName=" + pokeNames
@@ -25,7 +22,7 @@ function search(event){
     + "&typeFilt=" + typeFilt
     + "&type2Filt=" + type2Filt
     + "&randTeam=" + randTeam;
-    teamBtn.value="0";
+    randTeamBtn.value="0";
 
     $.getJSON( queryString, function (json) {
         var items = [];
@@ -76,8 +73,22 @@ function search(event){
             items.push("Whoops! No results! Try something less specific.");
             document.getElementById("bgColour").style.height= "100%";
         }
-        console.log(items);
         items.push();
         $("#search-results").html(items);
     });
 }
+
+function searchBtnAction() {
+    bgColor.style.height= "";
+    search(event);
+    searchResults.style.display = "inline-block";
+    gotoBottom.style.display = "inline-block";
+}
+
+function randTeamBtnAction(){
+    randTeamBtn.value="1";
+    searchBtnAction();
+}
+
+searchBtn.addEventListener("click", searchBtnAction);
+randTeamBtn.addEventListener("click", randTeamBtnAction);

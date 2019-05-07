@@ -5,8 +5,7 @@
         <link href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAx8fH/8fHx//Hx8f/x8fH/8fHx//Hx8f/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAx8fH/+Pj4//y8vL/8vLy//Ly8v/y8vL/4+Pj/8fHx/8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAx8fH/+Pj4//y8vL///////////////////////Ly8v/j4+P/x8fH/wAAAAAAAAAAAAAAAAAAAAAAAAAAx8fH/+Pj4//y8vL///////////////9/////f///////////8vLy/+Pj4//Hx8f/AAAAAAAAAAAAAAAAAAAAAMfHx//y8vL///////////////9/AAAA/wAAAP////9////////////y8vL/x8fH/wAAAAAAAAAAAAAAAAAAAADj4+P/8vLy//////////9/AAAA/wAAAH4AAAB+AAAA/////3//////8vLy/+Pj4/8AAAAAAAAAAAAAAAAAAAAAAIPg/wCO8v8Alf//AJX/fgAAAP8AAAB+AAAAfgAAAP//M3d//zN3/8QxYv+wLFj/AAAAAAAAAAAAAAAAAAAAAACD4P8Alf//AJX//wCV//8Alf9+AAAA/wAAAP//M3d//zN3//8zd///M3f/sCxY/wAAAAAAAAAAAAAAAAAAAAAAlf//AJX//wCV//8Alf//AJX//wCV/37/M3d//zN3//8zd///M3f//zN3//8zd/8AAAAAAAAAAAAAAAAAAAAAAAAAAACV//8Alf//AJX//wCV//8Alf///zN3//8zd///M3f//zN3//8zd/8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJX//wCV//8Alf//AJX///8zd///M3f//zN3//8zd/8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlf//AJX//wCV////M3f//zN3//8zd/8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//8AAP//AAD4HwAA8A8AAOAHAADBgwAAwkMAAMWjAADFowAAwkMAAMGDAADgBwAA8A8AAPgfAAD//wAA//8AAA==" rel="icon" type="image/x-icon" />
         <script src='http://code.jquery.com/jquery-1.11.1.min.js'></script>
         <link rel='stylesheet' type='text/css' href='static/css/main_page.css'>
-        <script src='static/js/home.js'></script>
-        <script src='static/js/buttons.js'></script>
+
     </head>
     <body>
         <button id="gotoTop" title="Go to top" onclick="window.scrollBy(0, -100000);">Go to top</button>
@@ -24,11 +23,11 @@
         <label id="copy" class="switch"><input id="copyFlip" type="checkbox"><span class="slider round"></span></label>
 
         <p id="search-line">
-        <input id="search-bar" placeholder="Search your Pokemon here"> <button id="search-button" class="buttons">Search</button> <button id="clear" class="buttons">Clear</button> <button id="team" class="buttons" value="0">Random Team</button>
+        <input id="search-bar" placeholder="Search your Pokemon here"> <button id="search-button" class="buttons">Search</button> <button id="clear" class="buttons">Clear</button> <button id="randTeam" class="buttons" value="0">Random Team</button>
         </p>
 
         <p id="sort">
-            <button class="sortBtn lead">Sort by:</button>
+            <button id="sortClear" class="sortBtn lead">Sort by:</button>
 
             <button id="HighStatsBtn" class="sortBtn buttons"> High Stats </button>
             <select id="HighStatsMenu" class="sortMenu" name="HighStats">
@@ -149,6 +148,7 @@
             <p class="weakText" id="steel">Steel:      </p>
             <p class="weakText" id="fairy">Fairy:      </p>
         </div>
+        <div id="copyCode"></div>
         <p id="search-results" class="infoBox"></p>
         <p id="disclamer">Now updated to gen 7! All art may not be available.</p>
         <p>Find something wrong? Contact me at kuehl.elijah.b@gmail.com!</p>
@@ -159,6 +159,11 @@
         <br>
     </body>
 </html>
+<script src='static/js/elements.js'></script>
+<script src='static/js/buttons.js'></script>
+<script src='static/js/home.js'></script>
+<script src='static/js/drag.js'></script>
+<script src='static/js/search.js'></script>
 <script>
     function checkArt(name){
         if (!document.getElementById("artFlip").checked){
