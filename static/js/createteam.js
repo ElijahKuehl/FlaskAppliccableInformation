@@ -24,7 +24,8 @@ function importTeam(){
 
     }
     else{
-        inputTeam.split("|");
+        inputTeam=inputTeam.split("|");
+
     }
 }
 
