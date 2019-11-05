@@ -1,22 +1,14 @@
 function clearBtnAction(){
     searchResults.style.display = "none";
-    pokeNames.value="";
-    // sortMenu.style.display = "none";
-    // sortBtn.style.display = "inline-block";
-    // filterMenu.style.display = "none";
-    // filterBtn.style.display = "inline-block";
+    searchBar.value="";
     sortMenu.value="Default";
     filterMenu.value="Default";
     sortBtnAction();
     filterClearAction();
-    // $(".StatHigh").style.display = "none";
-    // $(".StatLow").style.display = "none";
-    // $(".Generation").style.display = "none";
-    // $(".Legendary").style.display = "none";
-    // $(".Type").style.display = "none";
+    copyBtn.style.display = "none";
     Type2Btn.style.display = "none";
     gotoBottom.style.display = "none";
-    checkArtJS("victini");
+    checkArtJS("weakness");
     console.log($(window).width());
     weaknessList.style.display = "none";
     weaknessList.style.top = 30 + "px";
@@ -24,6 +16,7 @@ function clearBtnAction(){
     images.style.top = 280 + "px";
     images.style.left = 30 + "px";
     document.getElementById("pkmnImage").name = "victini";
+    document.getElementById("pkmnImage").src = "https://img.pokemondb.net/artwork/victini.jpg";
     bgColour.style.height= "100%";
 }
 

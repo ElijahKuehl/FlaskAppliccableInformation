@@ -32,6 +32,8 @@ var lowStatsMenu = document.getElementById("LowStatsMenu");
 var images = document.getElementById("images");
 var weaknessList = document.getElementById("weaknesses");
 var clear = document.getElementById("clear");
+var searchBar= document.getElementById("search-bar");
+var copyBtn= document.getElementById("copyBtn");
 
 var pokeNames = document.getElementById("search-bar").value;
 var highStats = document.getElementById("HighStatsMenu").value;
@@ -40,7 +42,7 @@ var generationFilt = document.getElementById("GenerationMenu").value;
 var legendFilt = document.getElementById("LegendaryMenu").value;
 var typeFilt = document.getElementById("TypeMenu").value;
 var type2Filt = document.getElementById("Type2Menu").value;
-var randTeam = randTeamBtn.value;
+var randTeam = teamBtn.value;
 var replaceName = "";
 
 var imeg = "";

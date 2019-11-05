@@ -1,8 +1,9 @@
 html{
-    background-color:#b69;
-    background: conic-gradient(#73f, #f80);
+    background-color:#84a;
+    background: conic-gradient(#f05, #08f);
     text-align: center;
     margin: 0;
+    color: white;
 }
 
 
@@ -10,7 +11,7 @@ html{
     width:750px;
     font-size:75px;
     font-family:monospace;
-    color:#f44 /*ff8000*/;
+    color:#ff8000;
     border-style:solid;
     border-color:#000000cd;
     background-color: white;
@@ -56,6 +57,7 @@ html{
     padding:10px;
     list-style:none;
     border-radius: 5px;
+    border-color: black;
 }
 
 #weaknesses{
@@ -84,7 +86,8 @@ html{
 
 #disclamer{
     text-align:center;
-    }
+}
+
 .copyright{
     text-align:center;
     font-size:12px;
@@ -92,6 +95,7 @@ html{
 
 li{
     padding:10px;
+    color: black;
 }
 
 #gotoTop{
@@ -181,7 +185,7 @@ li{
   left: 10px;
   right: -10px;
   bottom: 0;
-  background-color: #3ae;
+  background-color: #2c5;
   -webkit-transition: .4s;
   transition: .4s;
 }
@@ -242,6 +246,10 @@ input:checked + .slider:before {
 .buttons{
     border-radius:5px;
     background:white;
+}
+
+#search-results, #weaknesses{
+    color: black;
 }
 
 TODO: Make this fit to mobile

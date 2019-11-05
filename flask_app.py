@@ -24,8 +24,10 @@ def process_inputs():
     legendFilt = request.args["legendFilt"]
     typeFilt = request.args["typeFilt"]
     type2Filt = request.args["type2Filt"]
-    randTeam = request.args["randTeam"]
+    teamBool = request.args["teamBool"]
+    team = request.args["team"]
     nameFilt = ""
+    query = ""
 
     if ' -' in pokemon:
         val = 0
@@ -38,9 +40,7 @@ def process_inputs():
 
 
     #Sort by Stats, highest first, if a random team wasnt requested.
-    if randTeam == "1":
-        sort = "ORDER BY RAND() LIMIT 6"
-    elif highStats != "Default" and lowStats == "Default":
+    if highStats != "Default" and lowStats == "Default":
         sort = "ORDER BY "+ highStats +" DESC"
     #Sort by Stats, lowest first.
     elif lowStats != "Default" and highStats == "Default":
@@ -48,6 +48,13 @@ def process_inputs():
     #Don't Sort
     else:
         sort = ""
+
+    if teamBool == "1":
+        if team == "rand":
+            sort = "ORDER BY RAND() LIMIT 6"
+        else:
+            query = "SELECT * FROM Pokedex WHERE name IN ('" + team.replace("|","', '") + "') " + "ORDER BY FIELD(name, '"+ team.replace("|","', '") +"') LIMIT 6"
+
 
     #Filters a certian Generation
     if generationFilt != "Default":
@@ -76,6 +83,9 @@ def process_inputs():
     typFilt = types(typeFilt)
     typ2Filt = types(type2Filt)
 
-    results = engine.execute(("SELECT id, number, name, type1, CASE type2 WHEN '' THEN 'None' ELSE type2 END AS type2, total, hp, attack, defense, sp_attack, sp_defense, speed, generation, CASE legendary WHEN 'False' THEN 'Not' WHEN 'True' THEN 'Is' END AS legendary FROM Pokedex WHERE name LIKE '%%{}%%' "+nameFilt+genFilt+legFilt+typFilt+typ2Filt+sort+";").format(pokemon))
-
+    if query == "":
+        # CASE legendary WHEN 'False' THEN 'Not' WHEN 'True' THEN 'Is' END AS
+        query = "SELECT id, number, name, type1, CASE type2 WHEN '' THEN 'None' ELSE type2 END AS type2, total, hp, attack, defense, sp_attack, sp_defense, speed, generation, legendary FROM Pokedex WHERE name LIKE '%%{}%%' "+nameFilt+genFilt+legFilt+typFilt+typ2Filt+sort+";"
+    results = engine.execute(query.format(pokemon))
+    print(query)
     return jsonify([(dict(row.items())) for row in results])

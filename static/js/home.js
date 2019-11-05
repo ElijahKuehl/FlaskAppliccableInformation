@@ -8,6 +8,7 @@ $(document).ready(function(){
     $("#Type2Btn").hide();
     $("#search-results").hide();
     $("#resultCount").hide();
+    copyBtn.style.display = "none";
 
 
     $("#artFlip").click(function(){

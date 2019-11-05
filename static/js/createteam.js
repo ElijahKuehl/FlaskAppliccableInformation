@@ -8,7 +8,7 @@ var inputCode = "";
 var copyCode = document.getElementById("copyCode");
 
 function openTeams(){
-    randTeamBtn.style.display = "inline-block";
+    teamBtn.style.display = "inline-block";
     addPkmnBtn.style.display = "inline-block";
     teamList.style.display = "inline-block";
 }
@@ -25,11 +25,10 @@ function importTeam(){
     }
     else{
         inputTeam=inputTeam.split("|");
-
     }
 }
 
-function copyTeam(){
+function copyTeamy(){
     for(var k=0; k<customTeam.length; k++){
         inputCode = inputCode + customTeam[k]+"|";
     }
